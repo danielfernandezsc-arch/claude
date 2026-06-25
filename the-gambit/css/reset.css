@@ -1,0 +1,136 @@
+/* ============================================================
+   reset.css — normalize + box-sizing + variables globales
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Color — eje negro cálido / crema / oro */
+  --bg: #0a0805;
+  --bg-soft: #110d08;
+  --cream: #f4ead5;
+  --cream-dim: #c8bda6;
+  --gold: #c9a961;
+  --gold-light: #e8d098;
+  --gold-deep: #8a7438;
+
+  /* Superficies (marrones translúcidos) */
+  --surface-1: rgba(20, 15, 10, 0.55);
+  --surface-2: rgba(28, 21, 13, 0.72);
+  --surface-3: rgba(36, 27, 16, 0.85);
+
+  /* Bordes y líneas */
+  --line: rgba(201, 169, 97, 0.16);
+  --line-strong: rgba(201, 169, 97, 0.34);
+
+  /* Tipografía */
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+
+  /* Sombras y glow */
+  --shadow-soft: 0 18px 50px -24px rgba(0, 0, 0, 0.85);
+  --shadow-card: 0 24px 60px -30px rgba(0, 0, 0, 0.9);
+  --glow-gold: 0 0 0 1px var(--line-strong), 0 22px 48px -26px rgba(201, 169, 97, 0.45);
+
+  /* Geometría y movimiento */
+  --radius: 3px;
+  --radius-lg: 4px;
+  --container: 1120px;
+  --container-narrow: 760px;
+  --ease: cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--cream);
+  line-height: 1.65;
+  font-size: 17px;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+h1 em, h2 em, h3 em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+canvas {
+  display: block;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
