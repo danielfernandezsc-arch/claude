@@ -1,0 +1,88 @@
+/* ============================================================
+   animations.css — keyframes, scroll-reveal, microinteracciones
+   ============================================================ */
+
+/* --- Scroll reveal --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger en grids */
+.grid .reveal:nth-child(2) { transition-delay: 0.08s; }
+.grid .reveal:nth-child(3) { transition-delay: 0.16s; }
+.grid .reveal:nth-child(4) { transition-delay: 0.24s; }
+.grid .reveal:nth-child(5) { transition-delay: 0.32s; }
+.grid .reveal:nth-child(6) { transition-delay: 0.40s; }
+
+/* --- Vapor de la taza CSS (lead magnet) --- */
+@keyframes steam-rise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  15% { opacity: 0.7; }
+  60% { opacity: 0.4; }
+  100% { transform: translateY(-78px) scale(2.4); opacity: 0; }
+}
+
+.cup-steam span {
+  animation: steam-rise 4s ease-in infinite;
+}
+
+.cup-steam span:nth-child(1) { animation-delay: 0s; }
+.cup-steam span:nth-child(2) { animation-delay: 1.3s; }
+.cup-steam span:nth-child(3) { animation-delay: 2.6s; }
+
+/* --- Scroll hint --- */
+@keyframes hint-pulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(0.85); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+.scroll-hint-arrow {
+  transform-origin: top;
+  animation: hint-pulse 2.2s var(--ease) infinite;
+}
+
+/* --- Brillo del logo --- */
+@keyframes mark-glow {
+  0%, 100% { box-shadow: var(--glow-brass); }
+  50% { box-shadow: 0 0 0 1px var(--line-strong), 0 22px 52px -22px rgba(192, 137, 78, 0.75); }
+}
+
+.brand-mark {
+  animation: mark-glow 4.5s ease-in-out infinite;
+}
+
+/* --- Glyph de la sección visual: respiración sutil --- */
+@keyframes breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.02); }
+}
+
+.visual-glyph,
+.visual-temp {
+  animation: breathe 6s ease-in-out infinite;
+}
+
+/* --- Respeto a quien prefiere menos movimiento --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

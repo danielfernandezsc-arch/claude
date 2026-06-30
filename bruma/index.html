@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bruma · Café de especialidad y latte art</title>
+  <meta name="description" content="Bruma es una cafetería de especialidad: tueste propio, baristas que dibujan con la leche y café de origen servido en taza. Visítanos o reserva mesa." />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+  <!-- 1 · Barra de progreso -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- 2 · Canvas 3D + vignette -->
+  <div class="scene-layer" aria-hidden="true">
+    <canvas id="scene"></canvas>
+    <div class="vignette"></div>
+  </div>
+
+  <!-- 3 · Nav -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Bruma, inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 9h12v5a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9Z" />
+            <path d="M16 10h2.5a2.5 2.5 0 0 1 0 5H16" />
+            <path d="M8 3c-.6.8-.6 1.7 0 2.5M12 3c-.6.8-.6 1.7 0 2.5" />
+          </svg>
+        </span>
+        <span class="brand-name">Bruma</span>
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#arte">El arte</a>
+        <a href="#carta">La carta</a>
+        <a href="#club">Club</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#reservar" class="btn btn-brass nav-cta">Reservar</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- 4 · Hero -->
+    <section class="hero" id="reservar">
+      <div class="container hero-inner">
+        <p class="kicker reveal"><span class="dot" aria-hidden="true"></span> Tueste de la semana · Etiopía Yirgacheffe</p>
+        <h1 class="hero-title reveal">El café no se bebe con prisa: se mira, se <em>respira</em> y luego se <em>disfruta</em>.</h1>
+        <p class="hero-lead reveal">Tostamos en casa, extraemos al gramo y servimos cada taza coronada con un dibujo en la leche. Una cafetería de especialidad donde el vapor todavía cuenta algo.</p>
+
+        <form class="email-form reveal" data-form="hero" novalidate>
+          <label class="visually-hidden" for="heroEmail">Tu correo electrónico</label>
+          <input type="email" id="heroEmail" name="email" placeholder="tu@correo.com" autocomplete="email" required />
+          <button type="submit" class="btn btn-brass">Apúntate al boletín</button>
+        </form>
+        <p class="form-meta reveal">Recetas, orígenes y horarios · Sin spam · Baja cuando quieras</p>
+
+        <ul class="stats reveal" aria-label="Cifras de la cafetería">
+          <li><span class="stat-num">9</span><span class="stat-label">Años abiertos</span></li>
+          <li><span class="stat-num">14</span><span class="stat-label">Orígenes al año</span></li>
+          <li><span class="stat-num">320</span><span class="stat-label">Tazas al día</span></li>
+          <li><span class="stat-num">4,9/5</span><span class="stat-label">Valoración</span></li>
+        </ul>
+      </div>
+      <a href="#arte" class="scroll-hint" aria-label="Bajar al arte del latte">
+        <span class="scroll-hint-text">Baja</span>
+        <span class="scroll-hint-arrow" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- 5 · El arte (galería de figuras) -->
+    <section class="section" id="arte">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="kicker">El arte</p>
+          <h2 class="section-title">Seis trazos que cabe pedir en <em>barra</em>.</h2>
+          <p class="section-sub">El latte art no es decoración: es la prueba de una leche bien texturizada y una extracción en su punto. Estas son las figuras que dibujan nuestros baristas.</p>
+        </header>
+        <div class="grid grid-3">
+          <article class="art-card reveal">
+            <span class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 38c-9-6-15-12-15-19a8 8 0 0 1 15-3 8 8 0 0 1 15 3c0 7-6 13-15 19Z"/></svg>
+            </span>
+            <h3>Corazón</h3>
+            <p>El primer dibujo de todo barista y el más honesto: si la leche está perdida, el corazón se deshace.</p>
+            <p class="art-meta">Base · 1 vertido</p>
+          </article>
+          <article class="art-card reveal">
+            <span class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8c5 6 5 26 0 32M24 8c-5 6-5 26 0 32"/><path d="M24 16c4 2 8 2 11 0M24 16c-4 2-8 2-11 0M24 24c5 2 9 2 12 0M24 24c-5 2-9 2-12 0M24 31c3 1 6 1 9 0M24 31c-3 1-6 1-9 0"/></svg>
+            </span>
+            <h3>Rosetta</h3>
+            <p>La hoja de helecho. Un balanceo constante de la jarra y un corte final limpio que parte el dibujo en dos.</p>
+            <p class="art-meta">Intermedio · Balanceo</p>
+          </article>
+          <article class="art-card reveal">
+            <span class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="14" r="5"/><circle cx="24" cy="24" r="6.5"/><path d="M24 31c-5 2-8 6-8 10h16c0-4-3-8-8-10Z"/></svg>
+            </span>
+            <h3>Tulipán</h3>
+            <p>Capas empujadas una sobre otra. Cada empujón añade un pétalo: la paciencia se ve en el número de capas.</p>
+            <p class="art-meta">Intermedio · Por capas</p>
+          </article>
+          <article class="art-card reveal">
+            <span class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 34c0-8 5-14 12-14 5 0 9 3 9 8 0 3-2 5-5 5-2 0-3-1-3-3"/><path d="M35 28c2-3 3-6 3-9M14 34c-2 1-4 1-6 0"/><circle cx="33" cy="20" r="1"/></svg>
+            </span>
+            <h3>Cisne</h3>
+            <p>Una rosetta que se curva en cuello y se remata con la cabeza. La pieza con la que un barista presume.</p>
+            <p class="art-meta">Avanzado · Trazo libre</p>
+          </article>
+          <article class="art-card reveal">
+            <span class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10c3 5 3 23 0 28M18 10c-4 5-4 23 0 28M30 10c3 5 3 23 0 28M30 10c-4 5-4 23 0 28"/></svg>
+            </span>
+            <h3>Rosetta doble</h3>
+            <p>Dos helechos enfrentados en la misma taza. Exige control de caudal y una taza más ancha de lo normal.</p>
+            <p class="art-meta">Avanzado · Doble vertido</p>
+          </article>
+          <article class="art-card reveal">
+            <span class="art-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 38c0-10 7-14 7-22 0-4-3-7-7-7s-7 3-7 7c0 8 7 12 7 22Z"/><path d="M24 9c4 3 7 3 10 1M24 9c-4 3-7 3-10 1"/></svg>
+            </span>
+            <h3>Fénix</h3>
+            <p>Alas etcheadas con punzón sobre una base vertida. Mitad vertido, mitad grabado: nuestra pieza de firma.</p>
+            <p class="art-meta">Maestro · Etching</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · Split: el método -->
+    <section class="section">
+      <div class="container split">
+        <div class="split-text reveal">
+          <p class="kicker">El método</p>
+          <h2 class="section-title">Del grano verde a la <em>microespuma</em>.</h2>
+          <p>Tostamos cada lunes en lotes pequeños y dejamos reposar el café tres días antes de molerlo. La leche se textura hasta los 62 grados, ni uno más, para que quede sedosa y dulce sin quemarse. Solo entonces el dibujo aguanta.</p>
+          <ul class="check-list">
+            <li><span aria-hidden="true">✦</span> Tueste propio semanal, en lotes de 8 kilos.</li>
+            <li><span aria-hidden="true">✦</span> Extracción pesada al gramo, no a ojo.</li>
+            <li><span aria-hidden="true">✦</span> Leche texturizada a 62 °C para una espuma de pintor.</li>
+          </ul>
+        </div>
+        <div class="split-visual reveal" aria-hidden="true">
+          <div class="visual-frame">
+            <span class="visual-temp">62°</span>
+            <p class="visual-caption">Punto exacto de la microespuma</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · La carta -->
+    <section class="section" id="carta">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="kicker">La carta</p>
+          <h2 class="section-title">Lo que sale de la <em>máquina</em>.</h2>
+          <p class="section-sub">Espresso de la casa o filtrado de origen. Todo se puede pedir para llevar, pero el dibujo se ve mejor en taza.</p>
+        </header>
+        <ol class="menu-list">
+          <li class="menu-item reveal">
+            <div class="menu-head">
+              <h3 class="menu-name">Espresso</h3>
+              <span class="menu-dots" aria-hidden="true"></span>
+              <span class="menu-price">1,60 €</span>
+            </div>
+            <p class="menu-desc">Doble ristretto de la casa. Cuerpo de chocolate negro y un final de cereza. El examen de cualquier cafetería.</p>
+          </li>
+          <li class="menu-item reveal">
+            <div class="menu-head">
+              <h3 class="menu-name">Cortado</h3>
+              <span class="menu-dots" aria-hidden="true"></span>
+              <span class="menu-price">1,90 €</span>
+            </div>
+            <p class="menu-desc">Espresso domado con un dedo de leche texturizada. Un corazón pequeño cabe perfecto.</p>
+          </li>
+          <li class="menu-item reveal">
+            <div class="menu-head">
+              <h3 class="menu-name">Flat white</h3>
+              <span class="menu-dots" aria-hidden="true"></span>
+              <span class="menu-price">2,80 €</span>
+            </div>
+            <p class="menu-desc">Doble ristretto y microespuma fina en 160 ml. Intenso, sedoso y con sitio de sobra para una rosetta.</p>
+          </li>
+          <li class="menu-item reveal">
+            <div class="menu-head">
+              <h3 class="menu-name">Latte</h3>
+              <span class="menu-dots" aria-hidden="true"></span>
+              <span class="menu-price">3,10 €</span>
+            </div>
+            <p class="menu-desc">El lienzo grande. Leche dulce y espuma generosa: aquí caben el tulipán, el cisne y lo que el barista quiera.</p>
+          </li>
+          <li class="menu-item reveal">
+            <div class="menu-head">
+              <h3 class="menu-name">Filtrado de origen</h3>
+              <span class="menu-dots" aria-hidden="true"></span>
+              <span class="menu-price">3,40 €</span>
+            </div>
+            <p class="menu-desc">V60 del tueste de la semana. Sin leche, sin prisa: notas que cambian a medida que se enfría.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 8 · Split: origen del grano -->
+    <section class="section">
+      <div class="container split split-reverse">
+        <div class="split-visual reveal" aria-hidden="true">
+          <div class="visual-frame">
+            <span class="visual-glyph">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="32" cy="32" rx="14" ry="22" transform="rotate(28 32 32)"/><path d="M24 16c6 8 6 24 0 32" transform="rotate(28 32 32)"/></svg>
+            </span>
+            <p class="visual-caption">Trazabilidad de finca a taza</p>
+          </div>
+        </div>
+        <div class="split-text reveal">
+          <p class="kicker">El origen</p>
+          <h2 class="section-title">Sabemos el <em>nombre</em> de quien cultivó tu café.</h2>
+          <p>Compramos directo a fincas pequeñas en Etiopía, Colombia y Guatemala. Pagamos por encima del precio de mercado y rotamos el origen cada pocas semanas, así que la taza de hoy rara vez sabe igual que la del mes pasado. Eso, para nosotros, es lo bonito.</p>
+          <ul class="check-list">
+            <li><span aria-hidden="true">✦</span> Compra directa a productores, sin intermediarios.</li>
+            <li><span aria-hidden="true">✦</span> Ficha de cata visible en cada bolsa.</li>
+            <li><span aria-hidden="true">✦</span> Origen nuevo cada tres o cuatro semanas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 · Taller (lead magnet) -->
+    <section class="section">
+      <div class="container">
+        <div class="lead-magnet reveal">
+          <div class="lead-cup" aria-hidden="true">
+            <div class="cup">
+              <div class="cup-steam"><span></span><span></span><span></span></div>
+              <div class="cup-body">
+                <div class="cup-surface"></div>
+              </div>
+              <div class="cup-handle"></div>
+              <div class="cup-saucer"></div>
+            </div>
+          </div>
+          <div class="lead-content">
+            <p class="kicker">Taller de barra</p>
+            <h2 class="section-title">Aprende a texturizar y a dibujar tu primer corazón.</h2>
+            <p>Dos horas, grupos de seis y una máquina para ti. Sales texturizando leche como es debido y vertiendo tu primera figura. Incluye café de bienvenida y bolsa de 250 g del tueste de la semana.</p>
+            <form class="email-form" data-form="taller" novalidate>
+              <label class="visually-hidden" for="tallerEmail">Tu correo electrónico</label>
+              <input type="email" id="tallerEmail" name="email" placeholder="tu@correo.com" autocomplete="email" required />
+              <button type="submit" class="btn btn-brass">Reservar plaza</button>
+            </form>
+            <p class="form-meta">Próxima fecha: sábado, 11:00 · 39 € por persona</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · Split: el local + testimonio -->
+    <section class="section">
+      <div class="container split">
+        <div class="split-text reveal">
+          <p class="kicker">El local</p>
+          <h2 class="section-title">Un sitio para <em>quedarse</em>, no solo para pasar.</h2>
+          <p>Mesas corridas de madera, enchufes que funcionan y música a un volumen que deja hablar. Sin prisa por la mesa y sin cola para el wifi. Estamos en el casco viejo, donde la luz de la mañana entra de lado y el vapor se ve en el aire.</p>
+          <blockquote class="inline-quote">
+            <p>«Vengo a trabajar tres mañanas por semana. El café es excelente, pero lo que me retiene es que nadie te mira el reloj.»</p>
+            <footer><span class="quote-name">Elena Vidal</span> · <span class="quote-role">Clienta desde 2019</span></footer>
+          </blockquote>
+        </div>
+        <div class="split-visual reveal" aria-hidden="true">
+          <div class="visual-frame">
+            <span class="visual-hours">
+              <span class="hours-row"><span>Lun–Vie</span><span>7:30 – 20:00</span></span>
+              <span class="hours-row"><span>Sáb</span><span>9:00 – 21:00</span></span>
+              <span class="hours-row"><span>Dom</span><span>9:00 – 15:00</span></span>
+            </span>
+            <p class="visual-caption">Calle del Horno, 14 · Casco viejo</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · Testimonios -->
+    <section class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="kicker">La parroquia</p>
+          <h2 class="section-title">Quien entra una vez, <em>vuelve</em>.</h2>
+        </header>
+        <div class="grid grid-3">
+          <figure class="testimonial reveal">
+            <blockquote>«El mejor flat white de la ciudad, y no lo digo a la ligera: he probado todos. La microespuma es de otra liga.»</blockquote>
+            <figcaption>
+              <span class="avatar" aria-hidden="true">MR</span>
+              <span class="who"><span class="who-name">Marcos Ruiz</span><span class="who-role">Tostador · de visita</span></span>
+            </figcaption>
+          </figure>
+          <figure class="testimonial reveal">
+            <blockquote>«Hice el taller sin saber nada y salí dibujando corazones. Ahora desayuno latte art en casa cada fin de semana.»</blockquote>
+            <figcaption>
+              <span class="avatar" aria-hidden="true">CP</span>
+              <span class="who"><span class="who-name">Clara Pons</span><span class="who-role">Alumna del taller</span></span>
+            </figcaption>
+          </figure>
+          <figure class="testimonial reveal">
+            <blockquote>«Cambian el origen cada poco y siempre te cuentan qué estás bebiendo. Se nota que les importa de verdad.»</blockquote>
+            <figcaption>
+              <span class="avatar" aria-hidden="true">JA</span>
+              <span class="who"><span class="who-name">Jorge Alén</span><span class="who-role">Socio del Club</span></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 · Club (precios) -->
+    <section class="section" id="club">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="kicker">Club Bruma</p>
+          <h2 class="section-title">Tu café diario, un poco más <em>tuyo</em>.</h2>
+          <p class="section-sub">Entra cuando quieras a tomar café, o hazte socio y llévate además grano para casa cada mes.</p>
+        </header>
+        <div class="grid grid-2 pricing">
+          <article class="plan reveal">
+            <header class="plan-head">
+              <h3 class="plan-name"><span class="plan-glyph" aria-hidden="true"></span> De paso</h3>
+              <p class="plan-price"><span class="price-num">0 €</span><span class="price-per">/ siempre</span></p>
+              <p class="plan-desc">Sin tarjetas ni compromisos. La barra, la carta y el wifi, como debe ser.</p>
+            </header>
+            <ul class="feature-list">
+              <li><span class="yes" aria-hidden="true">✓</span> Carta completa en barra y sala</li>
+              <li><span class="yes" aria-hidden="true">✓</span> Wifi y enchufes sin límite</li>
+              <li><span class="yes" aria-hidden="true">✓</span> Origen de la semana siempre disponible</li>
+              <li><span class="no" aria-hidden="true">—</span> Grano para casa cada mes</li>
+              <li><span class="no" aria-hidden="true">—</span> Descuento del 15 % en la carta</li>
+              <li><span class="no" aria-hidden="true">—</span> Plaza prioritaria en los talleres</li>
+            </ul>
+            <a href="#cta" class="btn btn-ghost plan-cta">Venir a probar</a>
+          </article>
+          <article class="plan plan-featured reveal">
+            <span class="plan-badge">El favorito</span>
+            <header class="plan-head">
+              <h3 class="plan-name"><span class="plan-glyph" aria-hidden="true"></span> Socio</h3>
+              <p class="plan-price"><span class="price-num">12 €</span><span class="price-per">/ mes</span></p>
+              <p class="plan-desc">Para quien pasa por aquí casi a diario y se lleva el café a casa.</p>
+            </header>
+            <ul class="feature-list">
+              <li><span class="yes" aria-hidden="true">✓</span> Todo lo del plan De paso</li>
+              <li><span class="yes" aria-hidden="true">✓</span> Bolsa de 250 g del tueste cada mes</li>
+              <li><span class="yes" aria-hidden="true">✓</span> 15 % de descuento en toda la carta</li>
+              <li><span class="yes" aria-hidden="true">✓</span> Plaza prioritaria en los talleres</li>
+              <li><span class="yes" aria-hidden="true">✓</span> Catas privadas de nuevos orígenes</li>
+              <li><span class="yes" aria-hidden="true">✓</span> Tu pedido habitual, listo al llegar</li>
+            </ul>
+            <button type="button" class="btn btn-brass plan-cta" data-action="socio">Hacerme socio</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 · FAQ -->
+    <section class="section" id="faq">
+      <div class="container container-narrow">
+        <header class="section-head reveal">
+          <p class="kicker">Antes de venir</p>
+          <h2 class="section-title">Lo que más nos <em>preguntan</em>.</h2>
+        </header>
+        <div class="faq">
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span>¿Hace falta reservar mesa?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><p>Entre semana casi nunca; los fines de semana, mejor sí. Puedes reservar desde el botón de arriba o simplemente venir y probar suerte: rotamos rápido.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span>¿Tenéis leches vegetales?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><p>Avena de barista, soja y un poco de almendra. La de avena textura de maravilla, así que el latte art también sale con ella. Sin recargo.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span>¿Vendéis el café en grano?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><p>Sí, en bolsas de 250 g del tueste de la semana, en grano o molido al momento para tu método. Los socios del Club se llevan una cada mes incluida.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span>¿Cómo funcionan los talleres?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><p>Grupos de seis, dos horas, una máquina por persona. No necesitas experiencia: empezamos por texturizar leche y acabamos vertiendo tu primer corazón. Incluye café y una bolsa de grano.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span>¿Se puede trabajar con el portátil?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><p>Por supuesto, salvo el sábado a mediodía, que reservamos las mesas grandes para quien viene a comer. El resto del tiempo, enchufes y wifi para todos.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 · CTA final -->
+    <section class="section cta" id="cta">
+      <div class="container container-narrow cta-inner reveal">
+        <p class="kicker"><span class="dot" aria-hidden="true"></span> Te esperamos en la barra</p>
+        <h2 class="cta-title">Pásate mañana y deja que el vapor haga el <em>resto</em>.</h2>
+        <p class="cta-lead">Déjanos tu correo y te avisamos del próximo origen, las fechas de taller y cualquier excusa buena para tomar café.</p>
+        <form class="email-form email-form-lg" data-form="cta" novalidate>
+          <label class="visually-hidden" for="ctaEmail">Tu correo electrónico</label>
+          <input type="email" id="ctaEmail" name="email" placeholder="tu@correo.com" autocomplete="email" required />
+          <button type="submit" class="btn btn-brass">Quiero enterarme</button>
+        </form>
+        <p class="form-meta">Calle del Horno, 14 · Abierto desde las 7:30</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 15 · Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="Bruma, inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 9h12v5a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9Z" />
+              <path d="M16 10h2.5a2.5 2.5 0 0 1 0 5H16" />
+              <path d="M8 3c-.6.8-.6 1.7 0 2.5M12 3c-.6.8-.6 1.7 0 2.5" />
+            </svg>
+          </span>
+          <span class="brand-name">Bruma</span>
+        </a>
+        <p class="footer-tagline">Café de especialidad, tueste propio y latte art servido en taza. En el casco viejo desde 2017.</p>
+      </div>
+      <nav class="footer-col" aria-label="La casa">
+        <h4>La casa</h4>
+        <a href="#arte">El arte</a>
+        <a href="#carta">La carta</a>
+        <a href="#club">Club Bruma</a>
+        <a href="#reservar">Reservar</a>
+      </nav>
+      <nav class="footer-col" aria-label="Visítanos">
+        <h4>Visítanos</h4>
+        <a href="#cta">Calle del Horno, 14</a>
+        <a href="#faq">Horarios</a>
+        <a href="#arte">Talleres</a>
+        <a href="#reservar">Café en grano</a>
+      </nav>
+      <nav class="footer-col" aria-label="Legal">
+        <h4>Legal</h4>
+        <a href="#top">Privacidad</a>
+        <a href="#top">Términos</a>
+        <a href="#top">Cookies</a>
+        <a href="#top">Alérgenos</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Bruma. Tostado con calma, servido con vapor.</p>
+      <p class="footer-social">Instagram · @bruma.cafe</p>
+    </div>
+  </footer>
+
+  <!-- 16 · Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span class="toast-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    </span>
+    <span class="toast-text" id="toastText">¡Gracias! Te escribiremos pronto.</span>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/scene.js" defer></script>
+  <script src="js/interactions.js" defer></script>
+  <script src="js/forms.js" defer></script>
+</body>
+</html>
