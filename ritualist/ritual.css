@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap");
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+/* — Ambient background: radial glow that drifts almost imperceptibly — */
+.aura {
+  position: fixed; inset: -20%;
+  background: radial-gradient(42% 42% at 50% 42%, var(--accent-a12), transparent 70%);
+  animation: drift 34s var(--ease-breath) infinite alternate;
+  z-index: 0;
+}
+@keyframes drift {
+  from { transform: translate3d(-3%, -2%, 0) scale(1); }
+  to   { transform: translate3d(3%, 4%, 0) scale(1.12); }
+}
+
+/* — Color-temperature layers, cross-faded per breath phase — */
+.temp {
+  position: fixed; inset: 0; opacity: 0; z-index: 0;
+  transition: opacity 5s var(--ease-breath);
+  pointer-events: none;
+}
+.temp.warm { background: radial-gradient(60% 60% at 50% 45%, var(--warm-a30), transparent 72%); }
+.temp.cool { background: radial-gradient(60% 60% at 50% 55%, var(--cool-a30), transparent 72%); }
+body.is-inhale .temp.warm { opacity: .5; }
+body.is-exhale .temp.cool { opacity: .5; }
+
+.stage {
+  position: relative; z-index: 1;
+  width: min(520px, 88vw);
+  display: flex; flex-direction: column; align-items: center;
+  gap: var(--s-12);
+  padding: var(--s-8);
+}
+
+/* — Step progress segments — */
+.progress { position: fixed; top: var(--s-6); left: 50%; transform: translateX(-50%); display: flex; gap: var(--s-2); }
+.seg { width: 34px; height: 3px; border-radius: var(--r-full); background: var(--border); overflow: hidden; }
+.seg::after { content: ""; display: block; height: 100%; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform var(--d-slow) var(--ease-out-soft); }
+.seg.done::after { transform: scaleX(1); }
+.seg.active::after { transform: scaleX(.5); }
+
+/* — Step shell — */
+.step { width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--s-6); }
+.step.enter { animation: stageIn .6s var(--ease-out-soft) both; }
+.step.leave { animation: stageOut .4s var(--ease-out-soft) both; }
+@keyframes stageIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes stageOut { to { opacity: 0; transform: translateY(-10px); } }
+
+.eyebrow { font-size: var(--t-sm); letter-spacing: .18em; text-transform: uppercase; color: var(--text-faint); }
+.prompt { font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--t-xl); line-height: 1.3; max-width: 22ch; }
+.phrase { font-size: var(--t-lg); line-height: 1.6; color: var(--text); max-width: 26ch; }
+
+/* — Text input for intentions — */
+.field { width: 100%; max-width: 380px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-3); color: var(--text); font-family: var(--font-body); font-size: var(--t-md); padding: var(--s-4); resize: none; transition: border-color var(--d-mid) var(--ease-out-soft), box-shadow var(--d-mid) var(--ease-out-soft); }
+.field:focus { outline: none; border-color: var(--accent); box-shadow: var(--shadow-glow); }
+
+/* ============================ JOYA 1 — Breathing ============================ */
+.breath { position: relative; width: 300px; height: 300px; display: grid; place-items: center; }
+.halo {
+  position: absolute; width: 220px; height: 220px; border-radius: var(--r-full);
+  background: radial-gradient(circle, var(--accent-a20), transparent 68%);
+  transform: scale(.6); will-change: transform, opacity;
+}
+.orb {
+  position: relative; width: 180px; height: 180px; border-radius: var(--r-full);
+  background: radial-gradient(circle at 38% 34%, #eafff2, var(--accent) 58%, var(--accent-deep) 100%);
+  box-shadow: 0 0 0 1px var(--accent-a40), 0 0 40px var(--accent-a40), inset 0 0 40px rgba(255,255,255,.28);
+  transform: scale(.55); will-change: transform;
+}
+.breath-count {
+  position: absolute; font-family: var(--font-display); font-weight: var(--fw-bold);
+  font-size: var(--t-2xl); color: var(--bg); font-variant-numeric: tabular-nums;
+  opacity: 0; transition: opacity var(--d-mid) var(--ease-breath);
+}
+.breath-count.show { opacity: .82; }
+.breath-guide { font-size: var(--t-lg); font-weight: var(--fw-medium); letter-spacing: .04em; color: var(--text); opacity: 0; transition: opacity var(--d-slow) var(--ease-breath); }
+.breath-guide.show { opacity: .92; }
+.breath-cycle { font-size: var(--t-sm); color: var(--text-faint); font-variant-numeric: tabular-nums; }
+
+body.is-hold .orb { animation: quiver 1.1s ease-in-out infinite; }
+@keyframes quiver { 0%,100% { filter: none; } 50% { filter: brightness(1.06); } }
+
+/* — Timed pause countdown — */
+.count-big { font-family: var(--font-mono); font-weight: 500; font-size: var(--t-4xl); font-variant-numeric: tabular-nums; color: var(--accent); }
+
+/* — Checklist — */
+.checks { display: flex; flex-direction: column; gap: var(--s-3); width: 100%; max-width: 360px; }
+.check { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-3) var(--s-4); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-2); cursor: pointer; font-size: var(--t-md); text-align: left; transition: transform var(--d-fast) var(--ease-spring), border-color var(--d-mid); }
+.check:hover { transform: translateY(-2px); }
+.check .box { width: 20px; height: 20px; border-radius: var(--r-1); border: 2px solid var(--text-faint); display: grid; place-items: center; flex: none; transition: background var(--d-fast), border-color var(--d-fast); }
+.check.on .box { background: var(--accent); border-color: var(--accent); }
+.check.on .box::after { content: "✓"; color: var(--bg); font-size: var(--t-sm); font-weight: 700; }
+
+/* — Controls — */
+.controls { display: flex; flex-direction: column; align-items: center; gap: var(--s-3); }
+.btn-primary {
+  font-family: var(--font-body); font-weight: var(--fw-semi); font-size: var(--t-md);
+  color: var(--bg); background: var(--accent); border: none; border-radius: var(--r-full);
+  padding: var(--s-3) var(--s-8); cursor: pointer;
+  transition: transform var(--d-fast) var(--ease-spring), box-shadow var(--d-mid) var(--ease-out-soft);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+.btn-primary:active { transform: translateY(0); }
+.btn-ghost { background: none; border: none; color: var(--text-faint); font-family: var(--font-body); font-size: var(--t-sm); cursor: pointer; padding: var(--s-2) var(--s-4); transition: color var(--d-mid); }
+.btn-ghost:hover { color: var(--text-dim); }
+
+.btn-primary:focus-visible, .btn-ghost:focus-visible, .field:focus-visible, .check:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* — Serene skip modal — */
+.modal { position: fixed; inset: 0; z-index: var(--z-modal); background: var(--scrim); display: grid; place-items: center; animation: fade .3s var(--ease-out-soft) both; }
+.modal[hidden] { display: none; }
+.modal-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-4); padding: var(--s-8); max-width: 340px; text-align: center; box-shadow: var(--shadow-2); animation: cardIn .4s var(--ease-spring) both; }
+.modal-title { font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--t-lg); }
+.modal-sub { color: var(--text-dim); margin-top: var(--s-2); }
+.modal-actions { display: flex; flex-direction: column; gap: var(--s-2); margin-top: var(--s-6); }
+@keyframes fade { from { opacity: 0; } }
+@keyframes cardIn { from { opacity: 0; transform: translateY(12px) scale(.98); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .aura, body.is-hold .orb { animation: none; }
+  .orb, .halo, .step, .temp { transition: opacity .2s linear; }
+}

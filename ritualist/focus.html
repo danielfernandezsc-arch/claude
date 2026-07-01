@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ritualist · Foco</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="focus.css" />
+</head>
+<body>
+  <div class="aura" aria-hidden="true"></div>
+
+  <!-- Entry ritual (only when launched from a triggersFocus anchor) -->
+  <section class="overlay" id="entry" hidden>
+    <p class="eyebrow">Ritual de entrada</p>
+    <div class="preroll"><div class="preorb"></div></div>
+    <h1 class="prompt">¿Qué vas a avanzar en estos <span id="entryMin">25</span> minutos?</h1>
+    <textarea class="field" id="entryIntention" rows="2" placeholder="Una sola cosa…"></textarea>
+    <button class="btn-primary" id="entryStart">Empezar el bloque →</button>
+  </section>
+
+  <!-- Live focus / break ring -->
+  <main class="ring-stage" id="live" hidden>
+    <div class="ring-wrap">
+      <svg viewBox="0 0 300 300" class="ring">
+        <circle class="ring-track" cx="150" cy="150" r="130" />
+        <circle class="ring-fill" id="ringFill" cx="150" cy="150" r="130" />
+      </svg>
+      <div class="ring-center">
+        <div class="phase-label" id="phaseLabel">Foco</div>
+        <div class="timer" id="timer">25:00</div>
+      </div>
+    </div>
+    <p class="intention" id="liveIntention"></p>
+    <div class="controls" id="controls"></div>
+  </main>
+
+  <!-- Exit ritual overlay -->
+  <section class="overlay" id="exit" hidden>
+    <p class="eyebrow">Ritual de cierre</p>
+    <div class="count-big" id="exitCount">20</div>
+    <button class="check" id="exitCheck"><span class="box"></span><span>¿Avancé lo que dije?</span></button>
+    <button class="btn-primary" id="exitDone" style="visibility:hidden">Ir al descanso →</button>
+  </section>
+
+  <script type="module" src="focus.js"></script>
+</body>
+</html>

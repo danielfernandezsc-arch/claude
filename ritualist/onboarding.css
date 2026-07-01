@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap");
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { min-height: 100vh; background: var(--bg); color: var(--text); font-family: var(--font-body); overflow: hidden; display: grid; place-items: center; }
+.aura { position: fixed; inset: -20%; background: radial-gradient(42% 42% at 50% 42%, var(--accent-a12), transparent 70%); animation: drift 34s var(--ease-breath) infinite alternate; z-index: 0; }
+@keyframes drift { from { transform: translate3d(-3%,-2%,0) scale(1); } to { transform: translate3d(3%,4%,0) scale(1.12); } }
+
+.dots { position: fixed; top: var(--s-8); left: 50%; transform: translateX(-50%); display: flex; gap: var(--s-2); z-index: 2; }
+.dot { width: 7px; height: 7px; border-radius: var(--r-full); background: var(--border); transition: background var(--d-mid) var(--ease-out-soft), transform var(--d-mid) var(--ease-spring); }
+.dot.on { background: var(--accent); transform: scale(1.25); }
+
+.screen { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--s-6); padding: var(--s-8); width: min(560px, 90vw); animation: stageIn .6s var(--ease-out-soft) both; }
+.screen[hidden] { display: none; }
+@keyframes stageIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+.eyebrow { font-size: var(--t-sm); letter-spacing: .2em; text-transform: uppercase; color: var(--text-faint); }
+.title { font-family: var(--font-display); font-weight: var(--fw-black); font-size: var(--t-2xl); line-height: 1.15; letter-spacing: -.01em; }
+.sub { color: var(--text-dim); font-size: var(--t-md); }
+.phrase { font-size: var(--t-lg); color: var(--text); max-width: 26ch; line-height: 1.5; }
+
+/* — Breath (shared visual language with the ritual) — */
+.breath { position: relative; width: 240px; height: 240px; display: grid; place-items: center; }
+.halo { position: absolute; width: 190px; height: 190px; border-radius: var(--r-full); background: radial-gradient(circle, var(--accent-a20), transparent 68%); transform: scale(.6); }
+.orb { width: 150px; height: 150px; border-radius: var(--r-full); background: radial-gradient(circle at 38% 34%, #eafff2, var(--accent) 58%, var(--accent-deep) 100%); box-shadow: 0 0 0 1px var(--accent-a40), 0 0 40px var(--accent-a40), inset 0 0 40px rgba(255,255,255,.28); transform: scale(.55); }
+.guide { position: absolute; bottom: -34px; font-size: var(--t-md); color: var(--text-dim); opacity: 0; transition: opacity var(--d-slow) var(--ease-breath); }
+.guide.show { opacity: 1; }
+
+.seal { width: 200px; height: 200px; display: grid; place-items: center; }
+.seal .orb { animation: pulse 4s var(--ease-breath) infinite; }
+@keyframes pulse { 0%,100% { transform: scale(.85); } 50% { transform: scale(1); } }
+
+/* — Anchor grid — */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-3); width: 100%; }
+.tile { display: flex; flex-direction: column; align-items: center; gap: var(--s-2); padding: var(--s-4) var(--s-2); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-3); cursor: pointer; transition: transform var(--d-fast) var(--ease-spring), border-color var(--d-mid), box-shadow var(--d-mid); }
+.tile:hover { transform: translateY(-3px); border-color: var(--text-faint); }
+.tile.on { border-color: var(--accent); box-shadow: var(--shadow-glow); }
+.tile img { width: 32px; height: 32px; border-radius: var(--r-1); }
+.tile span { font-size: var(--t-xs); color: var(--text-dim); }
+.tile.on span { color: var(--text); }
+
+.milestone { font-size: var(--t-sm); color: var(--text-dim); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-full); padding: var(--s-2) var(--s-4); }
+.milestone b { color: var(--accent); }
+
+.btn-primary { font-family: var(--font-body); font-weight: var(--fw-semi); font-size: var(--t-md); color: var(--bg); background: var(--accent); border: none; border-radius: var(--r-full); padding: var(--s-3) var(--s-8); cursor: pointer; transition: transform var(--d-fast) var(--ease-spring), box-shadow var(--d-mid), opacity var(--d-mid); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+.btn-primary:disabled { opacity: .4; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-ghost { background: none; border: none; color: var(--text-faint); font-size: var(--t-sm); cursor: pointer; transition: color var(--d-mid); }
+.btn-ghost:hover { color: var(--text-dim); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) { .aura, .seal .orb { animation: none; } .orb, .halo { transition: none; } }

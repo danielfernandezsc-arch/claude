@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ritualist · Bienvenida</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="onboarding.css" />
+</head>
+<body>
+  <div class="aura" aria-hidden="true"></div>
+  <div class="dots" id="dots" aria-hidden="true"></div>
+
+  <!-- 1 · Breathe once, live -->
+  <section class="screen" id="s1">
+    <p class="eyebrow">Antes de ajustar nada</p>
+    <h1 class="title">Respira una vez.<br />En vivo.</h1>
+    <div class="breath"><div class="halo"></div><div class="orb" id="orb"></div><div class="guide" id="guide"></div></div>
+    <button class="btn-primary" id="breatheBtn">Respira conmigo</button>
+    <button class="btn-ghost" id="skip1" hidden>Continuar →</button>
+  </section>
+
+  <!-- 2 · Choose anchor webs -->
+  <section class="screen" id="s2" hidden>
+    <p class="eyebrow">Tus altares diarios</p>
+    <h1 class="title">Elige 1 a 3 webs<br />que abres cada día.</h1>
+    <p class="sub">Ritualist te embosca con presencia justo al entrar.</p>
+    <div class="grid" id="anchorGrid"></div>
+    <button class="btn-primary" id="toS3" disabled>Continuar →</button>
+  </section>
+
+  <!-- 3 · Done -->
+  <section class="screen" id="s3" hidden>
+    <div class="seal"><div class="orb"></div></div>
+    <h1 class="title">Listo.</h1>
+    <p class="phrase" id="welcome"></p>
+    <div class="milestone">Primer hito disponible · <b>Día 1 de presencia</b></div>
+    <button class="btn-primary" id="finish">Empezar a vivirlo →</button>
+  </section>
+
+  <script type="module" src="onboarding.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ritualist · Un momento</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="ritual.css" />
+</head>
+<body>
+  <div class="aura" aria-hidden="true"></div>
+  <div class="temp warm" aria-hidden="true"></div>
+  <div class="temp cool" aria-hidden="true"></div>
+
+  <main class="stage" role="main">
+    <div class="progress" id="progress" aria-hidden="true"></div>
+
+    <section class="step" id="step" aria-live="polite"></section>
+
+    <footer class="controls" id="controls">
+      <button class="btn-primary" id="continue">Continuar →</button>
+      <button class="btn-ghost" id="skip">Saltar hoy</button>
+    </footer>
+  </main>
+
+  <!-- Serene skip confirmation -->
+  <div class="modal" id="skipModal" hidden>
+    <div class="modal-card">
+      <p class="modal-title">Hoy entras en automático.</p>
+      <p class="modal-sub">¿Seguro?</p>
+      <div class="modal-actions">
+        <button class="btn-ghost" id="skipYes">Sí, saltar</button>
+        <button class="btn-primary" id="skipNo">Mejor me quedo 30 segundos</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="ritual.js"></script>
+</body>
+</html>

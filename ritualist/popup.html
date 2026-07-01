@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="mark"></span><span class="brand-name">Ritualist</span></div>
+    <div class="streak-chip" id="streakChip" title="Racha de presencia">🔥 <span id="streakChipN">0</span></div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab on" data-tab="today">Hoy</button>
+    <button class="tab" data-tab="focus">Foco</button>
+    <button class="tab" data-tab="rituals">Rituales</button>
+    <button class="tab" data-tab="webs">Webs</button>
+    <button class="tab" data-tab="settings">Ajustes</button>
+  </nav>
+
+  <main class="panels">
+    <section class="panel on" id="panel-today"></section>
+    <section class="panel" id="panel-focus"></section>
+    <section class="panel" id="panel-rituals"></section>
+    <section class="panel" id="panel-webs"></section>
+    <section class="panel" id="panel-settings"></section>
+  </main>
+
+  <div class="toast" id="toast" hidden></div>
+  <div class="modal" id="modal" hidden></div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
