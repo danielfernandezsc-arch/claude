@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Manrope:wght@700;800&display=swap");
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { min-height: 100vh; background: var(--bg); color: var(--text); font-family: var(--font-body); overflow: hidden; display: grid; place-items: center; }
+
+.aura { position: fixed; inset: -20%; background: radial-gradient(42% 42% at 50% 45%, var(--warm-a30), transparent 70%); opacity: .5; animation: drift 40s var(--ease-breath) infinite alternate; z-index: 0; }
+@keyframes drift { from { transform: translate3d(-3%,-2%,0) scale(1); } to { transform: translate3d(3%,3%,0) scale(1.1); } }
+
+.eyebrow { font-size: var(--t-sm); letter-spacing: .18em; text-transform: uppercase; color: var(--text-faint); }
+.prompt { font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--t-xl); line-height: 1.3; max-width: 20ch; text-align: center; }
+
+/* — Overlays (entry / exit) — */
+.overlay { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: var(--s-6); text-align: center; padding: var(--s-8); animation: stageIn .6s var(--ease-out-soft) both; }
+.overlay[hidden] { display: none; }
+@keyframes stageIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+.field { width: min(380px, 80vw); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-3); color: var(--text); font-family: var(--font-body); font-size: var(--t-md); padding: var(--s-4); resize: none; transition: border-color var(--d-mid), box-shadow var(--d-mid); }
+.field:focus { outline: none; border-color: var(--warm); box-shadow: 0 0 0 1px var(--warm-a30), 0 0 24px var(--warm-a30); }
+
+/* — Entry pre-roll breath — */
+.preroll { width: 160px; height: 160px; display: grid; place-items: center; }
+.preorb { width: 90px; height: 90px; border-radius: var(--r-full); background: radial-gradient(circle at 38% 34%, #fff6e6, var(--warm) 60%); box-shadow: 0 0 40px var(--warm-a30); animation: pre 6s var(--ease-breath) infinite; }
+@keyframes pre { 0%,100% { transform: scale(.6); } 50% { transform: scale(1.15); } }
+
+/* ============================ JOYA 2 — Focus ring ============================ */
+.ring-stage { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: var(--s-6); animation: stageIn .6s var(--ease-out-soft) both; }
+.ring-wrap { position: relative; width: min(340px, 80vw); aspect-ratio: 1; }
+.ring { width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring-track { fill: none; stroke: var(--surface-2); stroke-width: 14; }
+.ring-fill {
+  fill: none; stroke: var(--warm); stroke-width: 14; stroke-linecap: round;
+  filter: drop-shadow(0 0 8px var(--warm-a30));
+  transition: stroke-dashoffset 1s linear, stroke var(--d-slow) var(--ease-out-soft);
+}
+body.is-break .ring-fill { stroke: var(--cool); filter: drop-shadow(0 0 8px var(--cool-a30)); }
+body.is-break .aura { background: radial-gradient(42% 42% at 50% 45%, var(--cool-a30), transparent 70%); }
+
+.ring-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--s-2); }
+.phase-label { font-size: var(--t-sm); letter-spacing: .18em; text-transform: uppercase; color: var(--text-dim); }
+.timer { font-family: var(--font-mono); font-weight: 500; font-size: 46px; font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+
+.intention { color: var(--text-dim); font-size: var(--t-md); max-width: 30ch; text-align: center; line-height: 1.5; }
+.intention:empty { display: none; }
+
+/* — Controls — */
+.controls { display: flex; gap: var(--s-3); flex-wrap: wrap; justify-content: center; }
+.btn-primary { font-family: var(--font-body); font-weight: var(--fw-semi); font-size: var(--t-md); color: var(--bg); background: var(--warm); border: none; border-radius: var(--r-full); padding: var(--s-3) var(--s-8); cursor: pointer; transition: transform var(--d-fast) var(--ease-spring), box-shadow var(--d-mid); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 24px var(--warm-a30); }
+.btn-soft { font-family: var(--font-body); font-weight: var(--fw-medium); font-size: var(--t-md); color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-full); padding: var(--s-3) var(--s-6); cursor: pointer; transition: transform var(--d-fast) var(--ease-spring), border-color var(--d-mid); }
+.btn-soft:hover { transform: translateY(-2px); border-color: var(--text-faint); }
+.btn-danger { color: var(--soft); border-color: transparent; background: none; }
+
+.count-big { font-family: var(--font-mono); font-weight: 500; font-size: var(--t-4xl); font-variant-numeric: tabular-nums; color: var(--cool); }
+.check { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-3) var(--s-6); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-2); cursor: pointer; color: var(--text); font-size: var(--t-md); transition: transform var(--d-fast) var(--ease-spring); }
+.check:hover { transform: translateY(-2px); }
+.check .box { width: 20px; height: 20px; border-radius: var(--r-1); border: 2px solid var(--text-faint); display: grid; place-items: center; }
+.check.on .box { background: var(--accent); border-color: var(--accent); }
+.check.on .box::after { content: "✓"; color: var(--bg); font-size: var(--t-sm); font-weight: 700; }
+
+button:focus-visible, .field:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) { .aura, .preorb { animation: none; } .ring-fill { transition: none; } }

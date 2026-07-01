@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Ritualist",
+  "version": "1.0.0",
+  "description": "Tus webs de cada día, convertidas en pequeños altares. Entra con presencia, no en automático.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Ritualist",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "options_page": "options.html",
+  "permissions": ["storage", "alarms", "declarativeNetRequest", "tabs", "notifications"],
+  "host_permissions": ["<all_urls>"],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "ritual.html", "ritual.css", "ritual.js",
+        "focus.html", "focus.css", "focus.js",
+        "onboarding.html", "onboarding.css", "onboarding.js",
+        "tokens.css",
+        "utils/sound.js", "utils/messages.js", "utils/storage.js",
+        "utils/rituals.js", "utils/domains.js",
+        "icons/icon.svg", "icons/icon16.png", "icons/icon32.png",
+        "icons/icon48.png", "icons/icon128.png"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

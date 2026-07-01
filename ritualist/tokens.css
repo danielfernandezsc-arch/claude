@@ -1,0 +1,101 @@
+/* ============================================================
+   Ritualist — Design Tokens
+   Single source of truth. No color, spacing or easing value
+   may be hardcoded anywhere else. Everything consumes from here.
+   ============================================================ */
+:root {
+  /* — Color: base — */
+  --bg: #0e1013;
+  --surface: #1a1d21;
+  --surface-2: #202429;
+  --text: #f2f2ef;
+  --text-dim: #8a8e94;
+  --text-faint: #565b62;
+  --border: #2a2d32;
+
+  /* — Color: meaning — */
+  --accent: #4ade80;        /* verde presencia */
+  --accent-deep: #22c55e;
+  --warm: #fbbf24;          /* inhalar / foco */
+  --cool: #60a5fa;          /* exhalar */
+  --soft: #f87171;          /* peligro sereno */
+
+  /* — Color: alphas derivadas — */
+  --accent-a12: rgba(74, 222, 128, 0.12);
+  --accent-a20: rgba(74, 222, 128, 0.20);
+  --accent-a40: rgba(74, 222, 128, 0.40);
+  --warm-a30: rgba(251, 191, 36, 0.30);
+  --cool-a30: rgba(96, 165, 250, 0.30);
+  --scrim: rgba(6, 7, 9, 0.72);
+
+  /* — Espaciado (escala 4) — */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-12: 48px;
+  --s-16: 64px;
+
+  /* — Radios — */
+  --r-1: 6px;
+  --r-2: 10px;
+  --r-3: 14px;
+  --r-4: 20px;
+  --r-full: 999px;
+
+  /* — Sombras en capas — */
+  --shadow-1: 0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.35);
+  --shadow-2: 0 4px 12px rgba(0,0,0,.5), 0 18px 48px rgba(0,0,0,.45);
+  --shadow-glow: 0 0 0 1px var(--accent-a20), 0 0 24px var(--accent-a20);
+
+  /* — Tipografía — */
+  --font-display: "Manrope", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --fw-body: 400;
+  --fw-medium: 500;
+  --fw-semi: 600;
+  --fw-bold: 700;
+  --fw-black: 800;
+
+  /* — Tamaños de texto — */
+  --t-xs: 11px;
+  --t-sm: 12px;
+  --t-md: 14px;
+  --t-lg: 17px;
+  --t-xl: 22px;
+  --t-2xl: 30px;
+  --t-4xl: 52px;
+
+  /* — Easing nombrados — */
+  --ease-out-soft: cubic-bezier(.22, 1, .36, 1);
+  --ease-breath: cubic-bezier(.45, 0, .55, 1);
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+
+  /* — Duraciones — */
+  --d-fast: 140ms;
+  --d-mid: 260ms;
+  --d-slow: 600ms;
+
+  /* — Capas — */
+  --z-toast: 60;
+  --z-modal: 50;
+}
+
+/* Light theme: a calmer daytime palette. Applied to popup & options only;
+   the immersive ritual/focus screens stay dark by design. */
+:root[data-theme="light"] {
+  --bg: #f4f5f2;
+  --surface: #ffffff;
+  --surface-2: #eceef0;
+  --text: #1a1d21;
+  --text-dim: #5a6068;
+  --text-faint: #9aa0a8;
+  --border: #e0e2e6;
+  --accent-deep: #16a34a;
+  --scrim: rgba(20, 22, 26, 0.35);
+  --shadow-1: 0 1px 2px rgba(20,22,26,.06), 0 6px 20px rgba(20,22,26,.08);
+  --shadow-2: 0 4px 12px rgba(20,22,26,.1), 0 18px 48px rgba(20,22,26,.12);
+}
