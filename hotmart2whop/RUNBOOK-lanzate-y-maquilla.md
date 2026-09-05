@@ -44,7 +44,7 @@ semana 1 = Módulos 1-2 · semana 2 = Módulos 4-5.
 
 | # | Módulo | Clase (título Hotmart) | lesn_ | mp4 descargado | vídeo subido |
 |---|---|---|---|---|---|
-| 1 | M1 | | lesn_CTQZXR6DsFGDi | ☐ | ☐ |
+| 1 | M1 | Sesión en vivo: Kit básico para tus primeras 10 clientas | lesn_CTQZXR6DsFGDi | ☐ | ☐ (renombrada 5 sep 12:37 desde la sesión local; vídeo pendiente) |
 | 2 | M1 | | | ☐ | ☐ |
 | 3 | M1 | | | ☐ | ☐ |
 | 4 | M2 | | | ☐ | ☐ |
