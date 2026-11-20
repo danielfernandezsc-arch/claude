@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Elígete x Shivalink · Plan de lanzamiento</title>
+<style>
+@page { size: A4; margin: 0; }
+:root{
+  --ink:#1d1d1f; --ink2:#424245; --mute:#6e6e73; --faint:#86868b;
+  --line:#e5e5ea; --card:#f5f5f7; --bg:#ffffff;
+  --green:#1f9d55; --green2:#30d158; --greenbg:#eaf7ef;
+  --pink:#d63384; --pinkbg:#fdeef5;
+  --purple:#7d4cdb; --purplebg:#f2edfc;
+  --orange:#e8772e; --orangebg:#fdf1e7;
+  --blue:#0071e3; --bluebg:#e8f2fd;
+  --yellow:#b7860b; --yellowbg:#fdf6e3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#fff}
+body{font-family:"Inter","SF Pro Display",-apple-system,Helvetica,Arial,sans-serif;color:var(--ink);
+  -webkit-font-smoothing:antialiased;font-feature-settings:"ss01","cv11";font-size:10.5pt;line-height:1.5}
+.page{width:210mm;height:297mm;padding:20mm 18mm 16mm;position:relative;overflow:hidden;page-break-after:always;background:var(--bg)}
+.page:last-child{page-break-after:auto}
+body{counter-reset:pg}.page{counter-increment:pg}.pn:before{content:counter(pg,decimal-leading-zero)}
+.foot{position:absolute;left:18mm;right:18mm;bottom:9mm;display:flex;justify-content:space-between;font-size:7.5pt;color:var(--faint);letter-spacing:.02em}
+.eyebrow{font-size:8.5pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:5mm}
+h1{font-family:"Inter Display","Inter",sans-serif;font-weight:700;letter-spacing:-.035em;line-height:1.02}
+h2{font-family:"Inter Display","Inter",sans-serif;font-size:30pt;font-weight:700;letter-spacing:-.03em;line-height:1.05;margin-bottom:4mm}
+h3{font-size:12.5pt;font-weight:650;letter-spacing:-.01em;margin-bottom:2.5mm}
+.lead{font-size:13pt;color:var(--mute);line-height:1.45;max-width:150mm;margin-bottom:8mm;letter-spacing:-.005em}
+.lead b{color:var(--ink);font-weight:600}
+.card{background:var(--card);border-radius:5mm;padding:6mm 7mm}
+.grid{display:grid;gap:4mm}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.stat .n{font-family:"Inter Display";font-size:24pt;font-weight:700;letter-spacing:-.03em;line-height:1.05}
+.stat .l{font-size:8.5pt;color:var(--mute);margin-top:1.5mm;line-height:1.35}
+table{width:100%;border-collapse:collapse;font-size:9.3pt}
+th{text-align:left;font-weight:600;color:var(--faint);font-size:7.8pt;letter-spacing:.08em;text-transform:uppercase;padding:0 3mm 2.5mm 0;border-bottom:1px solid var(--line)}
+td{padding:2.6mm 3mm 2.6mm 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2)}
+td:first-child{color:var(--ink);font-weight:550}
+tr:last-child td{border-bottom:none}
+.quote{font-family:"Inter Display";font-size:17pt;font-weight:600;letter-spacing:-.02em;line-height:1.25;color:var(--ink)}
+.quote span{color:var(--faint)}
+.pill{display:inline-block;padding:1mm 3mm;border-radius:10mm;font-size:8pt;font-weight:600}
+.tag{font-size:8pt;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2mm}
+.mute{color:var(--mute)} .small{font-size:8.8pt}
+.green{color:var(--green)} .pink{color:var(--pink)} .purple{color:var(--purple)} .orange{color:var(--orange)} .blue{color:var(--blue)} .yellow{color:var(--yellow)}
+.bg-green{background:var(--greenbg)} .bg-pink{background:var(--pinkbg)} .bg-purple{background:var(--purplebg)} .bg-orange{background:var(--orangebg)} .bg-blue{background:var(--bluebg)} .bg-yellow{background:var(--yellowbg)}
+.bar{height:2.4mm;border-radius:2mm;background:#e8e8ed;overflow:hidden;margin-top:1.2mm}
+.bar i{display:block;height:100%;border-radius:2mm}
+ul.clean{list-style:none}
+ul.clean li{padding:2mm 0 2mm 5mm;position:relative;border-bottom:1px solid var(--line);color:var(--ink2);font-size:9.6pt}
+ul.clean li:last-child{border:none}
+ul.clean li:before{content:"";position:absolute;left:0;top:3.9mm;width:1.6mm;height:1.6mm;border-radius:50%;background:var(--green)}
+.mb2{margin-bottom:2mm}.mb4{margin-bottom:4mm}.mb6{margin-bottom:6mm}.mb8{margin-bottom:8mm}.mt4{margin-top:4mm}.mt6{margin-top:6mm}
+
+/* cover */
+.cover{background:#000;color:#f5f5f7;padding:0}
+.cover .inner{position:absolute;inset:0;padding:24mm 20mm;display:flex;flex-direction:column}
+.glow{position:absolute;width:190mm;height:190mm;border-radius:50%;filter:blur(40mm);opacity:.55}
+.cover h1{font-size:62pt;margin-top:auto}
+.grad{color:#30d158}
+.cover .sub{font-size:19pt;color:#a1a1a6;font-weight:500;letter-spacing:-.02em;margin-top:5mm}
+.cover .chips{display:flex;gap:3mm;margin-top:14mm;flex-wrap:wrap}
+.cover .chip{border:1px solid #3a3a3c;border-radius:10mm;padding:2.5mm 5mm;font-size:9.5pt;color:#e5e5ea}
+.cover .meta{display:flex;justify-content:space-between;font-size:8.5pt;color:#6e6e73;margin-top:16mm;border-top:1px solid #2c2c2e;padding-top:5mm}
+
+/* dark section */
+.dark{background:#000;color:#f5f5f7}
+.dark .mute{color:#a1a1a6}
+.dark .foot{color:#6e6e73}
+
+/* timeline gantt */
+.gantt{display:grid;grid-template-columns:30mm repeat(4,1fr);gap:1.5mm;font-size:8.5pt}
+.gantt .h{color:var(--faint);font-weight:600;font-size:7.6pt;letter-spacing:.06em;text-transform:uppercase;padding-bottom:1mm}
+.gantt .r{font-weight:600;padding:3mm 0}
+.gantt .c{border-radius:2.5mm;padding:2.8mm 3mm;font-weight:500;line-height:1.3}
+.tl td:first-child{white-space:nowrap;width:36mm}
+.tl tr.key td{color:var(--ink);font-weight:650}
+.who{color:var(--faint);font-size:8.5pt;white-space:nowrap}
+
+.scen{display:grid;grid-template-columns:26mm 1fr 30mm;align-items:center;gap:4mm;padding:3.5mm 0;border-bottom:1px solid var(--line)}
+.scen:last-child{border:none}
+.check{display:inline-block;width:3.4mm;height:3.4mm;border:1.3px solid #c7c7cc;border-radius:1mm;margin-right:2.5mm;vertical-align:-0.6mm}
+.num{display:inline-flex;width:5.5mm;height:5.5mm;border-radius:50%;background:var(--ink);color:#fff;font-size:7.5pt;font-weight:700;align-items:center;justify-content:center}
+.dot{display:inline-block;width:2.4mm;height:2.4mm;border-radius:50%;vertical-align:0}
+</style>
+</head>
+<body>
+
+<!-- 1 · PORTADA -->
+<section class="page cover">
+  <div class="glow" style="background:#1f9d55;left:-60mm;top:-50mm"></div>
+  <div class="glow" style="background:#d63384;right:-80mm;bottom:20mm;opacity:.35"></div>
+  <div class="inner">
+    <div style="font-size:9pt;letter-spacing:.2em;text-transform:uppercase;color:#86868b;font-weight:600">Shivalink · Plan de lanzamiento</div>
+    <h1><span class="grad">Elígete.</span><br>x Shivalink</h1>
+    <div class="sub">Una oferta. Un avatar. Una fecha.</div>
+    <div class="chips">
+      <div class="chip">🎤 Clase en directo · jue 21 ene</div>
+      <div class="chip">💚 Reto de 6 semanas · 297 €</div>
+      <div class="chip">⚡ Bono de 24 horas</div>
+      <div class="chip">🤝 Reparto 50/50 en Whop</div>
+    </div>
+    <div class="meta"><span>Agurtzane Pérez Zubiri · @agurtxucoach</span><span>Noviembre 2026</span></div>
+  </div>
+</section>
+
+<!-- 2 · RESUMEN + SESIÓN -->
+<section class="page">
+  <div class="eyebrow green">En una frase</div>
+  <h2>Ella ya tiene la prueba.<br><span class="mute">Nosotros ponemos el camino.</span></h2>
+  <p class="lead">Clase en directo el <b>jueves 21 de enero</b> · 14 días de captación con reels, palabra clave y anuncios · venta directa con bono de 24 horas · <b>297 €</b> · reparto <b>50/50</b> en Whop.</p>
+
+  <div class="grid g4 mb8">
+    <div class="card stat"><div class="n green">297 €</div><div class="l">o 3 cuotas de 109 €</div></div>
+    <div class="card stat"><div class="n">21 ene</div><div class="l">Clase en directo · 19:00 España</div></div>
+    <div class="card stat"><div class="n">10K €</div><div class="l">Meta de la fase 1 · 34 ventas</div></div>
+    <div class="card stat"><div class="n">50/50</div><div class="l">Ingresos, gastos y publicidad</div></div>
+  </div>
+
+  <div class="eyebrow mute">🎥 Sesión diagnóstico · 18 de noviembre</div>
+  <h3>Lo que nos contó</h3>
+  <ul class="clean mb6">
+    <li>Vende un reto de 21 días con producto Herbalife · 3 packs: básico, avanzado y óptimo · el óptimo cuesta entre 175 y 275 € y ella se gana 80 a 100 € por venta.</li>
+    <li>Antes del verano metía unas 21 personas nuevas al mes · la semana pasada, con Black Friday, 6.</li>
+    <li>Todo entra por ManyChat en Instagram → su WhatsApp → grupo de Telegram, donde le mandan fotos de cada comida.</li>
+    <li>No le gusta la pirámide: cuanto más trabaja, menos gana.</li>
+    <li>Ella perdió 25 kilos tras sus peques · vive solo de esto y es madre presente.</li>
+    <li>Un reel le trajo 368.000 seguidoras en mes y medio · hoy crece más despacio.</li>
+    <li>Historias: entre 1.500 y 2.000 personas · momento personal y de salud delicado.</li>
+  </ul>
+  <div class="card bg-green"><div class="quote">«Estoy abierta a cambios<br>y a que esto explote.»</div><div class="small mute mt4">— Agurtzane, en la sesión diagnóstico</div></div>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 3 · OPORTUNIDAD -->
+<section class="page">
+  <div class="eyebrow green">🌱 La oportunidad en una mirada</div>
+  <h2>Un escaparate en la Gran Vía<br><span class="mute">vendiendo batidos de uno en uno.</span></h2>
+  <p class="lead">Por su cuenta pasan <b>537.000 personas al mes</b> y la ven <b>1,2 millones de veces</b>. Hoy eso se convierte en unas 21 ventas al mes, por WhatsApp, a mano, con producto de otra marca y una pirámide que se queda su parte.</p>
+
+  <div class="grid g2 mb8" style="gap:5mm">
+    <div class="card"><div class="tag mute">Hoy con Herbalife</div><div class="stat"><div class="n" style="color:#8e8e93">~21</div><div class="l">ventas al mes</div></div></div>
+    <div class="card bg-green"><div class="tag green">Con Elígete y Shivalink</div><div class="stat"><div class="n green">~105</div><div class="l">ventas en una semana · escenario realista</div></div></div>
+  </div>
+
+  <table class="mb8">
+    <tr><th style="width:34%"></th><th>Hoy con Herbalife</th><th>Con Elígete y Shivalink</th></tr>
+    <tr><td>💶 Lo que gana por venta</td><td>80 a 100 €</td><td><b class="green">Unos 148 €</b>, la mitad de 297 €</td></tr>
+    <tr><td>📦 Stock y envíos</td><td>Sí</td><td>No · todo digital en Whop</td></tr>
+    <tr><td>🔺 Pirámide encima</td><td>Sí, cada vez gana menos</td><td>No · 50/50 limpio</td></tr>
+    <tr><td>📱 Cómo vende</td><td>Una a una por WhatsApp</td><td>Una clase para cientos a la vez</td></tr>
+    <tr><td>🧾 Cómo entrega</td><td>Revisa fotos de cada comida, una a una</td><td>Grupo con un check-in semanal y un directo a la semana</td></tr>
+    <tr><td>📈 Ventas</td><td>Unas 21 al mes</td><td>Unas 105 en una semana</td></tr>
+  </table>
+
+  <div class="card"><div class="quote">No le pedimos que cambie de profesión.<br><span>Le pedimos que cambie de tubería: el mismo agua, diez veces más caudal y sin que nadie se quede un trozo por el camino.</span></div></div>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 4 · PLAN EN UNA PÁGINA -->
+<section class="page">
+  <div class="eyebrow purple">🧭 El plan en una página</div>
+  <h2>Todas las piezas,<br><span class="mute">de un vistazo.</span></h2>
+  <div class="grid g2" style="gap:3.5mm;margin-top:8mm">
+    <div class="card"><div class="tag mute">👤 Avatar</div><div>La mujer de 45 a 60 que hace lo mismo de siempre y ya no le funciona</div></div>
+    <div class="card"><div class="tag mute">🎤 Promesa de la clase</div><div>Cómo perder grasa después de los 45 sin dietas imposibles ni horas de gimnasio</div></div>
+    <div class="card bg-purple" style="grid-column:span 2"><div class="tag purple">💎 Oferta</div><div style="font-size:13pt;font-weight:600;letter-spacing:-.01em">Reto Elígete · 6 semanas para perder grasa y recuperar tu energía después de los 45, desde casa y con comida normal</div></div>
+    <div class="card"><div class="tag mute">💵 Precio</div><div><b style="font-size:16pt">297 €</b> <span class="mute">al contado o 3 × 109 €</span></div></div>
+    <div class="card"><div class="tag mute">⚡ Bono 24 h</div><div>Recetario Dulce Elígete · 30 postres para adelgazar sin renunciar</div></div>
+    <div class="card"><div class="tag mute">🔑 Palabra clave</div><div><b style="font-size:16pt">ELÍGETE</b> <span class="mute">· reels, stories y directos</span></div></div>
+    <div class="card"><div class="tag mute">🛒 Cierre</div><div>Venta directa en la clase y en la página de venta · Carina recupera carritos por WhatsApp</div></div>
+    <div class="card"><div class="tag mute">💰 Inversión</div><div>1.000 € en anuncios · 500 Agur y 500 Shivalink</div></div>
+    <div class="card"><div class="tag mute">🔁 Después</div><div>Club Elígete · 37 € al mes desde el 15 de marzo</div></div>
+    <div class="card bg-green"><div class="tag green">🏁 Meta</div><div><b style="font-size:16pt">10.000 €</b> <span class="mute">· 34 ventas</span></div></div>
+    <div class="card"><div class="tag mute">💳 Cobro</div><div>Whop · reparto 50/50 automático</div></div>
+  </div>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 5 · QUIÉN ES AGUR -->
+<section class="page">
+  <div class="eyebrow pink">👤 Quién es Agur</div>
+  <div style="display:grid;grid-template-columns:58mm 1fr;gap:9mm;align-items:center" class="mb8">
+    <img src="agur.jpg" style="width:58mm;height:58mm;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2mm var(--pinkbg)">
+    <div>
+      <h2 style="margin-bottom:2mm">Agurtzane<br>Pérez Zubiri</h2>
+      <div class="pink" style="font-weight:600;margin-bottom:3mm">@agurtxucoach · cuenta verificada</div>
+      <p class="mute" style="font-size:10.5pt">Madre, deportista de siempre y coach de pérdida de peso. Perdió 25 kilos después de sus peques y hoy está mejor que antes de ser madre. Empezó sola, sin nadie que la apoyara, y vive al 100 % de esto.</p>
+    </div>
+  </div>
+  <div class="card bg-pink mb8" style="text-align:center"><div class="quote">«Pierde peso sin dietas imposibles<br><span>· +1000 transformaciones reales»</span></div><div class="small mute mt4">Su bio</div></div>
+
+  <div class="grid g3 mb8">
+    <div class="card stat"><div class="n pink">648K</div><div class="l">seguidoras</div></div>
+    <div class="card stat"><div class="n pink">−25 kg</div><div class="l">su propio antes y después</div></div>
+    <div class="card stat"><div class="n pink">+1.000</div><div class="l">transformaciones</div></div>
+  </div>
+
+  <table>
+    <tr><th>Lo que ya tiene</th><th>Por qué importa</th></tr>
+    <tr><td>648.296 seguidoras, cuenta verificada</td><td>Alcance que otros pagan en anuncios</td></tr>
+    <tr><td>Su propio antes y después: 25 kilos</td><td>La prueba más fuerte: ella es el resultado</td></tr>
+    <tr><td>+1.000 transformaciones</td><td>Testimonios para la clase y la página de venta</td></tr>
+    <tr><td>Un reto de 21 días que ya vende cada mes</td><td>El mercado ya le paga 175 a 275 €</td></tr>
+    <tr><td>ManyChat, WhatsApp y Telegram montados</td><td>La tubería existe, solo hay que cambiar el destino</td></tr>
+  </table>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 6 · AVATAR -->
+<section class="page">
+  <div class="eyebrow pink">🪞 Avatar</div>
+  <h2>La que hace lo mismo de siempre<br><span class="mute">y ya no le funciona.</span></h2>
+  <p class="lead">Mujer de <b>45 a 60 años</b>, sobre todo en España. Madre, trabaja, ha probado mil dietas. Desde los 45 su cuerpo cambió: la barriga no se va, retiene líquidos, se despierta a las 3 de la madrugada y está cansada. Come como siempre y aun así engorda.</p>
+  <div class="card bg-pink mb8"><div class="tag pink">Lo que de verdad quiere</div><div style="font-size:11.5pt">No quiere un cuerpo de competición: quiere volver a abrocharse sus vaqueros, mirarse al espejo sin pelearse y tener energía.</div><div class="quote mt4" style="font-size:15pt">Su pregunta no es «qué dieta hago».<br>Es «por qué ya no me funciona nada».</div></div>
+
+  <h3>Las 4 creencias que la frenan</h3>
+  <table class="mb8">
+    <tr><th style="width:42%">Creencia</th><th>Lo que le respondemos</th></tr>
+    <tr><td>«A mi edad ya no se adelgaza»</td><td>Tu cuerpo no se ha roto. Han cambiado las reglas y nadie te las ha explicado.</td></tr>
+    <tr><td>«Para adelgazar hay que pasar hambre»</td><td>Las dietas imposibles son justo la razón por la que recuperas lo perdido.</td></tr>
+    <tr><td>«No tengo tiempo para el gimnasio»</td><td>20 minutos en casa con un plan valen más que dos horas sin él.</td></tr>
+    <tr><td>«Siempre empiezo y lo dejo»</td><td>No te falta fuerza de voluntad, te falta acompañamiento.</td></tr>
+  </table>
+
+  <div class="card bg-yellow" style="display:grid;grid-template-columns:1fr 46mm;gap:6mm;align-items:center">
+    <div><div class="tag yellow">🔍 La pista que nos dio su propio contenido</div><div class="small">Su reel con más comentarios del mes no fue de ejercicio: fue <i>«¿te despiertas a las 3 de la madrugada?»</i>. Su audiencia no habla de abdominales, habla de lo que le pasa a su cuerpo a partir de los 45. <b>Ahí está la herida, y ahí va la promesa.</b></div></div>
+    <div style="text-align:center"><div class="stat"><div class="n yellow">159</div><div class="l">comentarios con 19.600 reproducciones</div></div></div>
+  </div>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 7 · AUDIENCIA -->
+<section class="page">
+  <div class="eyebrow pink">📊 Su audiencia · 19 oct → 17 nov</div>
+  <h2>Medio millón de personas<br><span class="mute">al mes pasan por su escaparate.</span></h2>
+  <div class="grid g3 mb6" style="margin-top:6mm">
+    <div class="card stat"><div class="n">1,24 M</div><div class="l">visualizaciones en 30 días</div></div>
+    <div class="card stat"><div class="n">537K</div><div class="l">cuentas alcanzadas</div></div>
+    <div class="card stat"><div class="n">93 %</div><div class="l">mujeres</div></div>
+  </div>
+
+  <div class="grid g2 mb6" style="gap:5mm">
+    <div class="card">
+      <h3>👩 Quién la sigue</h3>
+      <div class="small">45 a 54 años <b style="float:right">36,7 %</b></div><div class="bar"><i style="width:36.7%;background:var(--pink)"></i></div>
+      <div class="small mt4">55 a 64 años <b style="float:right">23,6 %</b></div><div class="bar"><i style="width:23.6%;background:var(--pink)"></i></div>
+      <div class="small mt4">35 a 44 años <b style="float:right">23,3 %</b></div><div class="bar"><i style="width:23.3%;background:#f3a6c9"></i></div>
+      <div class="small mt4">25 a 34 años <b style="float:right">6,5 %</b></div><div class="bar"><i style="width:6.5%;background:#f3a6c9"></i></div>
+      <div class="small mute mt4"><i>Confirma el avatar: el 60 % tiene entre 45 y 64.</i></div>
+    </div>
+    <div class="card">
+      <h3>🌎 Dónde están · hora de la clase</h3>
+      <div class="small">🇪🇸 España · 19:00 <b style="float:right">41,9 %</b></div><div class="bar"><i style="width:41.9%;background:var(--blue)"></i></div>
+      <div class="small mt4">🇦🇷 Argentina · 15:00 <b style="float:right">19,8 %</b></div><div class="bar"><i style="width:19.8%;background:var(--blue)"></i></div>
+      <div class="small mt4">🇲🇽 México · 12:00 <b style="float:right">8 %</b></div><div class="bar"><i style="width:8%;background:#8fc1f5"></i></div>
+      <div class="small mt4">🇨🇱 Chile · 15:00 <b style="float:right">7,8 %</b></div><div class="bar"><i style="width:7.8%;background:#8fc1f5"></i></div>
+      <div class="small mt4">🇨🇴 Colombia · 13:00 <b style="float:right">4,3 %</b></div><div class="bar"><i style="width:4.3%;background:#8fc1f5"></i></div>
+      <div class="small mute mt4"><i>Español: 96,4 %</i></div>
+    </div>
+  </div>
+
+  <table>
+    <tr><th>Dato</th><th>Valor</th><th>Para qué lo usamos</th></tr>
+    <tr><td>📸 Seguidoras</td><td>648.296 · +0,2 %</td><td>Captación orgánica</td></tr>
+    <tr><td>🎬 Reels · historias · publicaciones</td><td>983K · 176K · 84K</td><td>Los reels son el canal principal</td></tr>
+    <tr><td>➕ Seguidoras nuevas</td><td>4.493 nuevas · 1.523 netas</td><td>Crece, pero más despacio</td></tr>
+    <tr><td>📱 Historias</td><td>1.500 a 2.000 personas</td><td>Calentamiento, no captación</td></tr>
+    <tr><td>🍰 Top contenido</td><td>Receta 185K · 73K · «4 SÍ en el gimnasio» 72K · 70K</td><td>Resubir con la llamada a la clase</td></tr>
+  </table>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 8 · OFERTA (dark) -->
+<section class="page dark">
+  <div class="glow" style="background:#7d4cdb;right:-90mm;top:-70mm;opacity:.45"></div>
+  <div style="position:relative">
+  <div class="eyebrow" style="color:#b79cf2">💎 La oferta</div>
+  <h1 style="font-size:40pt;margin-bottom:6mm">Reto <span class="grad">Elígete</span></h1>
+  <p style="font-size:14pt;color:#d2d2d7;line-height:1.4;max-width:160mm;letter-spacing:-.01em">6 semanas para perder grasa y recuperar tu energía después de los 45, desde casa, con comida normal y sin dietas imposibles, aunque lo hayas intentado todo.</p>
+  <div style="margin:12mm 0;padding:8mm 0;border-top:1px solid #2c2c2e;border-bottom:1px solid #2c2c2e">
+    <div class="quote" style="color:#f5f5f7;font-size:21pt">No vendemos un reto de 297 €.<br><span style="color:#86868b">Vendemos la mañana en que vuelves a abrocharte tus vaqueros favoritos.</span></div>
+  </div>
+  <h3 style="color:#f5f5f7">Cómo funciona</h3>
+  <div class="grid g4" style="gap:3mm;margin-top:4mm">
+    <div style="background:#1c1c1e;border-radius:4mm;padding:5mm"><div class="tag" style="color:#30d158">Lun 1 feb</div><div class="small" style="color:#d2d2d7">Empiezan todas a la vez</div></div>
+    <div style="background:#1c1c1e;border-radius:4mm;padding:5mm"><div class="tag" style="color:#30d158">Cada lunes</div><div class="small" style="color:#d2d2d7">Se abre la semana en Whop: menú, lista de la compra y 3 entrenos de 20 min</div></div>
+    <div style="background:#1c1c1e;border-radius:4mm;padding:5mm"><div class="tag" style="color:#30d158">Cada miércoles</div><div class="small" style="color:#d2d2d7">Directo de dudas con Agur</div></div>
+    <div style="background:#1c1c1e;border-radius:4mm;padding:5mm"><div class="tag" style="color:#30d158">Cada domingo</div><div class="small" style="color:#d2d2d7">Check-in en el grupo con medidas y una foto</div></div>
+  </div>
+  <div class="grid g4" style="gap:3mm;margin-top:8mm">
+    <div style="border-top:1px solid #2c2c2e;padding-top:4mm"><div class="stat"><div class="n" style="color:#f5f5f7">6</div><div class="l" style="color:#86868b">semanas, todas a la vez</div></div></div>
+    <div style="border-top:1px solid #2c2c2e;padding-top:4mm"><div class="stat"><div class="n" style="color:#f5f5f7">18</div><div class="l" style="color:#86868b">entrenos de 20 min en casa</div></div></div>
+    <div style="border-top:1px solid #2c2c2e;padding-top:4mm"><div class="stat"><div class="n" style="color:#f5f5f7">6</div><div class="l" style="color:#86868b">directos con Agur</div></div></div>
+    <div style="border-top:1px solid #2c2c2e;padding-top:4mm"><div class="stat"><div class="n" style="color:#30d158">0</div><div class="l" style="color:#86868b">batidos obligatorios</div></div></div>
+  </div>
+  <div style="margin-top:8mm;background:linear-gradient(100deg,#0f3d24,#1c1c1e);border-radius:5mm;padding:6mm 7mm;display:flex;gap:6mm;align-items:center">
+    <div style="font-size:26pt">🏆</div>
+    <div><div class="tag" style="color:#30d158">Primera victoria en 7 días</div><div style="color:#e5e5ea">Tu primera semana completa y tus medidas de partida.</div></div>
+  </div>
+  </div>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 9 · CADA EXCUSA RESUELTA -->
+<section class="page">
+  <div class="eyebrow purple">💎 La oferta por dentro</div>
+  <h2>Cada excusa,<br><span class="mute">resuelta.</span></h2>
+  <div class="grid g3 small" style="gap:3mm;margin-top:6mm">
+    <div class="card"><div class="tag mute">🍽️ «No sé qué comer»</div><b>Menú de 6 semanas</b> con comida de supermercado y lista de la compra semanal · sin batidos ni suplementos obligatorios</div>
+    <div class="card"><div class="tag mute">⏰ «No tengo tiempo»</div><b>3 entrenos de 20 minutos por semana</b> en casa, sin material</div>
+    <div class="card"><div class="tag mute">🕰️ «A mi edad ya no se puede»</div><b>Tu cuerpo después de los 45</b> · sueño, retención, energía y por qué lo de antes ya no sirve</div>
+    <div class="card"><div class="tag mute">🍫 «Me muero por el dulce»</div>Sus <b>recetas sin culpa</b>, lo que más se comparte de su cuenta</div>
+    <div class="card"><div class="tag mute">🎉 «Los findes me desmonto»</div><b>Plan para findes y comidas fuera</b></div>
+    <div class="card"><div class="tag mute">😔 «Empiezo y lo dejo»</div><b>Grupo Elígete</b> con check-in cada domingo y <b>directo semanal con Agur</b></div>
+    <div class="card" style="grid-column:span 3"><div class="tag mute">🔁 «Luego lo recupero todo»</div><b>Semana 6: plan de mantenimiento</b> para que no vuelva</div>
+  </div>
+
+  <div class="card bg-orange mt6">
+    <div style="display:grid;grid-template-columns:1fr 40mm;gap:6mm;align-items:center">
+      <div>
+        <div class="tag orange">⚡ Bono de acción rápida</div>
+        <div style="font-size:14pt;font-weight:650;letter-spacing:-.01em;margin-bottom:2mm">Recetario Dulce Elígete · 30 postres para adelgazar sin renunciar</div>
+        <div class="small"><b>Para quién:</b> quien entre antes del viernes 22 de enero a las 21:00, hora de España.<br><b>Por qué funciona:</b> sus recetas son su contenido más visto, 185.000 visualizaciones la de este mes, y no cuesta nada entregarlo.</div>
+      </div>
+      <div style="text-align:center"><div class="stat"><div class="n orange">24 h</div><div class="l">después de la clase</div></div></div>
+    </div>
+  </div>
+
+  <div class="grid g2 mt4" style="gap:4mm">
+    <div class="card bg-green"><div class="tag green">🛡️ Garantía Elígete</div><div class="small">Si haces las 6 semanas, entrenos, menú y check-in de cada domingo, y no has bajado al menos <b>3 cm de cintura</b>, repites el reto gratis en la siguiente edición.</div></div>
+    <div class="card"><div class="tag mute">🔒 Escasez real</div><div class="small">Una sola edición, la de febrero. Todas empiezan juntas el lunes 1. <b>Cierre el miércoles 27 de enero a las 23:59.</b></div></div>
+  </div>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 10 · PILA DE VALOR + ESCALERA -->
+<section class="page">
+  <div class="eyebrow purple">🧱 Pila de valor · la ve en la página de venta</div>
+  <h2>952 € de valor.<br><span class="green">Hoy, 297 €.</span></h2>
+  <div class="card mt6 mb8">
+    <table>
+      <tr><td>Menú de 6 semanas y listas de la compra</td><td style="text-align:right">197 €</td></tr>
+      <tr><td>18 entrenos de 20 minutos en casa</td><td style="text-align:right">147 €</td></tr>
+      <tr><td>6 directos de dudas con Agur</td><td style="text-align:right">300 €</td></tr>
+      <tr><td>Grupo Elígete con check-in semanal</td><td style="text-align:right">97 €</td></tr>
+      <tr><td>Tu cuerpo después de los 45</td><td style="text-align:right">97 €</td></tr>
+      <tr><td>Plan de mantenimiento</td><td style="text-align:right">67 €</td></tr>
+      <tr><td>⚡ Bono 24 h · Recetario Dulce Elígete</td><td style="text-align:right">47 €</td></tr>
+      <tr><td style="font-size:12pt;padding-top:4mm">Valor total</td><td style="text-align:right;font-size:12pt;padding-top:4mm"><s class="mute">952 €</s> &nbsp;<b class="green" style="font-size:17pt">297 €</b></td></tr>
+    </table>
+  </div>
+
+  <div class="eyebrow mute">🪜 La escalera</div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;align-items:end">
+    <div class="card" style="height:34mm"><div class="tag mute">Jue 21 ene</div><b>🎤 Clase gratuita</b><div class="stat"><div class="n" style="font-size:16pt;margin-top:2mm">0 €</div></div></div>
+    <div class="card bg-green" style="height:48mm"><div class="tag green">1 feb → 14 mar</div><b>💚 Reto Elígete · 6 semanas</b><div class="stat"><div class="n green" style="font-size:16pt;margin-top:2mm">297 €</div><div class="l">o 3 × 109 €</div></div></div>
+    <div class="card bg-purple" style="height:62mm"><div class="tag purple">Desde 15 mar</div><b>🔁 Club Elígete</b><div class="small mute">Menú nuevo cada mes y directo mensual</div><div class="stat"><div class="n purple" style="font-size:16pt;margin-top:2mm">37 €/mes</div></div></div>
+    <div class="card bg-yellow" style="height:76mm"><div class="tag yellow">Más adelante</div><b>🌟 Elígete 90 días en vivo</b><div class="small mute">La oferta de la auditoría, con los testimonios del reto</div><div class="stat"><div class="n yellow" style="font-size:16pt;margin-top:2mm">997 €</div></div></div>
+  </div>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 11 · HORMOZI -->
+<section class="page">
+  <div class="eyebrow purple">🧠 Por qué esta oferta · la lente de Hormozi</div>
+  <h2>Primero la meta corta que engancha.<br><span class="mute">Luego la continuidad.</span></h2>
+
+  <div class="mt6 mb6" style="display:grid;grid-template-columns:9mm 1fr;gap:3mm 4mm">
+    <span class="num">1</span><div><b>El mercado manda más que la oferta.</b> <span class="mute">Hormozi pide 4 cosas a un mercado: dolor enorme, dinero para pagar, fácil de encontrar y que crezca. Mujeres de 45 a 60 que quieren perder peso cumplen las 4. Es el mercado más probado de los infoproductos.</span></div>
+  </div>
+  <div style="display:grid;grid-template-columns:9mm 1fr;gap:3mm 4mm" class="mb4"><span class="num">2</span><b>La ecuación de valor.</b></div>
+  <div class="grid g2 mb6" style="gap:3mm;margin-left:13mm">
+    <div class="card bg-green" style="padding:4.5mm 5mm"><div class="tag green">⬆️ Resultado soñado</div><div class="small">Volver a abrocharse los vaqueros y tener energía</div></div>
+    <div class="card bg-green" style="padding:4.5mm 5mm"><div class="tag green">⬆️ Probabilidad percibida</div><div class="small">Agur es la prueba: 25 kilos y +1.000 transformaciones de mujeres como ella</div></div>
+    <div class="card bg-blue" style="padding:4.5mm 5mm"><div class="tag blue">⬇️ Tiempo hasta el resultado</div><div class="small">Primera victoria en 7 días y una meta corta de 6 semanas</div></div>
+    <div class="card bg-blue" style="padding:4.5mm 5mm"><div class="tag blue">⬇️ Esfuerzo y sacrificio</div><div class="small">20 minutos en casa, comida de supermercado y sin pasar hambre</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:9mm 1fr;gap:5mm 4mm">
+    <span class="num">3</span><div><b>Empezar donde el mercado ya paga.</b> <span class="mute">Su audiencia ya paga 175 a 275 € por un reto de 21 días. 297 € por 6 semanas, sin producto obligatorio y con ella en directo, se entiende a la primera.</span></div>
+    <span class="num">4</span><div><b>El modelo de Gym Launch.</b> <span class="mute">Es exactamente lo que hizo Hormozi con sus gimnasios: un reto de 6 semanas para mujeres que quieren perder peso como puerta de entrada, y una membresía después. Primero la meta corta que engancha y da resultados; luego la continuidad, que es donde está el beneficio.</span></div>
+    <span class="num">5</span><div><b>Por qué no los 1.000 a 1.500 € de la auditoría, todavía.</b> <span class="mute">Sus historias las ven 2.000 personas y su primer directo lo vieron 124. Esa audiencia todavía no confía lo bastante para un ticket alto sin llamadas. Con 297 € ganamos parecido, entran tres veces más mujeres, salen tres veces más testimonios y el programa de 997 € llega después, con prueba propia.</span></div>
+  </div>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 12 · LANZAMIENTO -->
+<section class="page">
+  <div class="eyebrow orange">🗓️ El lanzamiento</div>
+  <h2>Captación → calentamiento<br><span class="mute">→ venta.</span></h2>
+  <div class="gantt mt6 mb6">
+    <div></div><div class="h">19 nov → 6 ene</div><div class="h">7 → 13 ene</div><div class="h">14 → 20 ene</div><div class="h">21 → 27 ene</div>
+    <div class="r">🛠️ Preparación</div><div class="c" style="background:#ececf0">Contrato, Whop, oferta, páginas, grabaciones y grupos</div><div></div><div></div><div></div>
+    <div class="r">📣 Captación</div><div></div><div class="c bg-blue">Reels con ELÍGETE, yapping y anuncios</div><div class="c bg-blue">Se escala lo que funciona</div><div></div>
+    <div class="r">🔥 Calentamiento</div><div></div><div></div><div class="c bg-orange">Grupo a tope y casos reales</div><div></div>
+    <div class="r">💰 Venta</div><div></div><div></div><div></div><div class="c bg-green">Clase, bono 24 h, carritos y cierre</div>
+  </div>
+
+  <div class="card bg-blue mb6"><div class="tag blue">📅 Por qué estas fechas</div><div class="small">Captación justo después de Reyes, cuando España vuelve a la rutina con los propósitos recién hechos. La clase el 21, el cierre el 27 y el reto arranca el lunes 1 de febrero, ya con la nómina cobrada. Las 3 cuotas suavizan la cuesta de enero.</div></div>
+
+  <table>
+    <tr><th>Fase</th><th>Objetivo</th><th>Se mide</th></tr>
+    <tr><td>📣 Captación</td><td>Que se registren a la clase</td><td>Registros al día, comentarios con ELÍGETE y coste por registro</td></tr>
+    <tr><td>🔥 Calentamiento</td><td>Que lleguen con ganas y en directo</td><td>Miembros del grupo y asistentes</td></tr>
+    <tr><td>💰 Venta</td><td>Que compren en la clase o en los 6 días siguientes</td><td>Visitas a la página de venta, carritos y ventas</td></tr>
+  </table>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 13 · CRONOGRAMA -->
+<section class="page">
+  <div class="eyebrow orange">🗓️ Cronograma</div>
+  <h2>Fecha a fecha.</h2>
+  <table class="tl mt6">
+    <tr><th>Fecha</th><th>Qué</th><th>Quién</th></tr>
+    <tr><td>Jue 19 nov</td><td>Respuesta a Agur con el plan y los datos que faltan</td><td class="who">Dani</td></tr>
+    <tr><td>Semana del 23 nov</td><td>Sesión de partnership · Whop, contrato y decisiones</td><td class="who">Agur y Dani</td></tr>
+    <tr><td>48 h después</td><td>Firma del contrato</td><td class="who">Agur</td></tr>
+    <tr><td>1 → 18 dic</td><td>Oferta, landing, página de venta, guion y slides</td><td class="who">Dani</td></tr>
+    <tr><td>Mar 15 dic</td><td>Agur graba 14 yapping, 10 ganchos y 2 cuerpos de anuncio en una sola sesión</td><td class="who">Agur</td></tr>
+    <tr><td>Lun 4 ene</td><td>Comunidad, palabra clave ELÍGETE y mensajes programados</td><td class="who">Ange</td></tr>
+    <tr class="key"><td><span class="dot" style="background:var(--blue)"></span> Jue 7 ene</td><td>📣 Arranca la captación</td><td class="who">Todos</td></tr>
+    <tr class="key"><td><span class="dot" style="background:var(--orange)"></span> Jue 14 ene</td><td>🔥 Arranca el calentamiento</td><td class="who">Ange</td></tr>
+    <tr><td>Mar 19 ene</td><td>Ensayo general de la clase</td><td class="who">Agur y Dani</td></tr>
+    <tr class="key"><td><span class="dot" style="background:var(--green)"></span> Jue 21 ene · 19:00</td><td>💰 Clase en directo · se abren las plazas</td><td class="who">Agur</td></tr>
+    <tr><td>Vie 22 ene · 21:00</td><td>Fin del bono de acción rápida</td><td class="who">—</td></tr>
+    <tr><td>21 → 27 ene</td><td>Recuperación de carritos por WhatsApp</td><td class="who">Carina</td></tr>
+    <tr class="key"><td><span class="dot" style="background:var(--ink)"></span> Mié 27 ene · 23:59</td><td>Cierre de plazas</td><td class="who">—</td></tr>
+    <tr class="key"><td><span class="dot" style="background:var(--green)"></span> Lun 1 feb</td><td>Arranca el Reto Elígete</td><td class="who">Agur</td></tr>
+    <tr><td>Lun 15 mar</td><td>Se abre el Club Elígete para las que terminan</td><td class="who">Agur y Dani</td></tr>
+  </table>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 14 · REGISTROS -->
+<section class="page">
+  <div class="eyebrow orange">📣 De dónde salen los registros</div>
+  <h2>No hacemos la fiesta en el salón.<br><span class="mute">Ponemos el cartel en el escaparate.</span></h2>
+  <p class="lead">Sus historias son pequeñas, pero sus reels llegan a <b>medio millón de personas al mes</b>. Por eso la captación sale de los reels y de los anuncios, y las historias quedan para calentar.</p>
+  <div class="grid" style="gap:3mm">
+    <div class="card" style="display:grid;grid-template-columns:1fr 22mm;gap:4mm;align-items:center"><div><b>🔁 Reels que ya funcionaron</b><div class="small mute">Sus recetas y reels top, con gancho nuevo y cierre: <i>«comenta ELÍGETE y te paso la clase»</i></div></div><span class="pill bg-green green" style="text-align:center">Alto</span></div>
+    <div class="card" style="display:grid;grid-template-columns:1fr 22mm;gap:4mm;align-items:center"><div><b>🗣️ Yapping · uno al día</b><div class="small mute">14 vídeos que rompen las 4 creencias antes de la clase</div></div><span class="pill bg-green green" style="text-align:center">Alto</span></div>
+    <div class="card" style="display:grid;grid-template-columns:1fr 22mm;gap:4mm;align-items:center"><div><b>📣 Anuncios</b><div class="small mute">1.000 € · mujeres de 45 a 62 en los 5 países, más presupuesto en España</div></div><span class="pill bg-yellow yellow" style="text-align:center">Medio</span></div>
+    <div class="card" style="display:grid;grid-template-columns:1fr 22mm;gap:4mm;align-items:center"><div><b>🤖 ManyChat</b><div class="small mute">Las que ya escriben pidiendo información del reto van a la clase</div></div><span class="pill bg-yellow yellow" style="text-align:center">Medio</span></div>
+    <div class="card" style="display:grid;grid-template-columns:1fr 22mm;gap:4mm;align-items:center"><div><b>✈️ Telegram y su WhatsApp</b><div class="small mute">Su canal, su grupo y sus contactos reciben la invitación</div></div><span class="pill" style="text-align:center;background:#ececf0;color:var(--mute)">Por confirmar</span></div>
+  </div>
+  <div class="card bg-pink mt6"><div class="tag pink">⚠️ Reglas para Meta en pérdida de peso</div><div class="small">Sin antes y después, sin señalar el cuerpo de quien mira y sin prometer kilos. Agur habla en primera persona: <i>«yo, después de mis peques…»</i>.</div></div>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 15 · LA CLASE -->
+<section class="page">
+  <div class="eyebrow blue">🎤 Cómo lo vendemos · la clase</div>
+  <h2 style="font-size:25pt">Cómo perder grasa después de los 45<br><span class="mute">sin dietas imposibles ni horas de gimnasio.</span></h2>
+  <div class="grid g4 mt6 mb6" style="gap:3mm">
+    <div class="card bg-blue"><div class="tag blue">Cuándo</div><b>Jue 21 enero</b></div>
+    <div class="card bg-blue"><div class="tag blue">Duración</div><b>90 minutos</b></div>
+    <div class="card bg-blue" style="grid-column:span 2"><div class="tag blue">Dónde</div><b>YouTube, Facebook e Instagram</b> <span class="small mute">desde StreamYard</span></div>
+  </div>
+  <div class="small mute mb6">🇪🇸 19:00 España · 🇨🇴 13:00 Colombia · 🇦🇷🇨🇱 15:00 Argentina y Chile · 🇲🇽 12:00 México</div>
+
+  <h3>El guion en 6 bloques</h3>
+  <div class="mb6">
+    <div style="display:flex;height:9mm;border-radius:2.5mm;overflow:hidden;font-size:7.5pt;font-weight:600;color:#fff;margin:3mm 0 4mm">
+      <div style="width:11.1%;background:#0071e3;display:flex;align-items:center;justify-content:center">0–10</div>
+      <div style="width:11.1%;background:#3a8ee8;display:flex;align-items:center;justify-content:center">10–20</div>
+      <div style="width:38.9%;background:#d63384;display:flex;align-items:center;justify-content:center">20–55 · Las 4 creencias</div>
+      <div style="width:11.1%;background:#e8772e;display:flex;align-items:center;justify-content:center">55–65</div>
+      <div style="width:16.7%;background:#1f9d55;display:flex;align-items:center;justify-content:center">65–80 · Oferta</div>
+      <div style="width:11.1%;background:#6e6e73;display:flex;align-items:center;justify-content:center">80–90</div>
+    </div>
+    <table>
+      <tr><td style="width:22mm">0 → 10</td><td>Promesa y quién es Agur: 25 kilos, madre, +1.000 transformaciones, 648.000 seguidoras</td></tr>
+      <tr><td>10 → 20</td><td>Su historia: cómo pasó de no gustarse a estar mejor que antes de ser madre</td></tr>
+      <tr><td>20 → 55</td><td>Las 4 creencias: la edad, el hambre, el gimnasio y la fuerza de voluntad</td></tr>
+      <tr><td>55 → 65</td><td>Alumnas reales de 45 a 60 con su antes y después, con permiso</td></tr>
+      <tr><td>65 → 80</td><td>La oferta · bono de 24 horas · garantía</td></tr>
+      <tr><td>80 → 90</td><td>Preguntas · enlace a la página de venta</td></tr>
+    </table>
+  </div>
+
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 16 · EMBUDO -->
+<section class="page">
+  <div class="eyebrow blue">🧲 El embudo</div>
+  <h2>Del reel a la compra,<br><span class="mute">sin una sola llamada.</span></h2>
+  <div style="display:flex;align-items:stretch;gap:1.5mm;margin:9mm 0 9mm">
+    <div class="card bg-pink" style="flex:1;padding:4mm 3mm;text-align:center"><div style="font-size:16pt">🎬</div><b class="small">Reel</b><div class="mute" style="font-size:7.5pt">comenta ELÍGETE</div></div>
+    <div style="align-self:center;color:#c7c7cc">›</div>
+    <div class="card bg-purple" style="flex:1;padding:4mm 3mm;text-align:center"><div style="font-size:16pt">🤖</div><b class="small">ManyChat</b><div class="mute" style="font-size:7.5pt">envía el enlace</div></div>
+    <div style="align-self:center;color:#c7c7cc">›</div>
+    <div class="card bg-blue" style="flex:1;padding:4mm 3mm;text-align:center"><div style="font-size:16pt">🌐</div><b class="small">Landing</b><div class="mute" style="font-size:7.5pt">registro en 1 clic</div></div>
+    <div style="align-self:center;color:#c7c7cc">›</div>
+    <div class="card bg-orange" style="flex:1;padding:4mm 3mm;text-align:center"><div style="font-size:16pt">💬</div><b class="small">WhatsApp</b><div class="mute" style="font-size:7.5pt">calentamiento</div></div>
+    <div style="align-self:center;color:#c7c7cc">›</div>
+    <div class="card bg-yellow" style="flex:1;padding:4mm 3mm;text-align:center"><div style="font-size:16pt">🎤</div><b class="small">Clase</b><div class="mute" style="font-size:7.5pt">21 ene · 19:00</div></div>
+    <div style="align-self:center;color:#c7c7cc">›</div>
+    <div class="card bg-green" style="flex:1;padding:4mm 3mm;text-align:center"><div style="font-size:16pt">💳</div><b class="small">Whop</b><div class="mute" style="font-size:7.5pt">297 € · 50/50</div></div>
+  </div>
+  <h3>Cada pieza y para qué sirve</h3>
+  <table class="mb6">
+    <tr><td style="width:44mm">🌐 Landing de registro</td><td>Registro con un clic directo al grupo de WhatsApp</td></tr>
+    <tr><td>💚 Página de gracias</td><td>Botón al grupo y encuesta de 2 preguntas</td></tr>
+    <tr><td>💎 Página de venta</td><td>Pila de valor, bono con cuenta atrás, garantía y 2 formas de pago · antes de Whop salta un pop-up de nombre, correo y teléfono para guardar cada carrito</td></tr>
+    <tr><td>💬 Comunidad de WhatsApp</td><td>Un mensaje al día al estilo Iman, enlaces de SendFlow y envío lento</td></tr>
+    <tr><td>🛒 Carritos</td><td>Carina escribe a cada carrito abandonado del 21 al 27 de enero</td></tr>
+  </table>
+  <div class="card bg-green"><div class="tag green">🧲 Venta directa, sin llamadas</div><div class="small">A 297 € la decisión se toma en la clase o en la página de venta, no en una llamada. Es más simple para todos y no necesita equipo de cierre.</div></div>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 16 · NÚMEROS -->
+<section class="page">
+  <div class="eyebrow yellow">💰 Números</div>
+  <h2>Con 4 ventas se pagan los anuncios.<br><span class="mute">Con 34, la meta.</span></h2>
+
+  <div class="card mt6 mb6">
+    <div class="scen" style="padding-top:0"><div><b>🌱 Conservador</b><div class="small mute">2.000 registros</div></div>
+      <div><div class="small mute">400 asisten (20 %) · 40 ventas (10 %)</div><div class="bar" style="height:5mm"><i style="width:19.4%;background:#a8e0bd"></i></div></div>
+      <div style="text-align:right"><b style="font-size:13pt">11.880 €</b><div class="small mute">5.440 € c/u</div></div></div>
+    <div class="scen"><div><b>🌿 Realista</b><div class="small mute">3.500 registros</div></div>
+      <div><div class="small mute">875 asisten (25 %) · 105 ventas (12 %)</div><div class="bar" style="height:5mm"><i style="width:51%;background:var(--green2)"></i></div></div>
+      <div style="text-align:right"><b class="green" style="font-size:15pt">31.185 €</b><div class="small"><b>15.093 € c/u</b></div></div></div>
+    <div class="scen" style="padding-bottom:0"><div><b>🌳 Optimista</b><div class="small mute">5.500 registros</div></div>
+      <div><div class="small mute">1.375 asisten (25 %) · 206 ventas (15 %)</div><div class="bar" style="height:5mm"><i style="width:100%;background:var(--green)"></i></div></div>
+      <div style="text-align:right"><b style="font-size:13pt">61.182 €</b><div class="small mute">30.091 € c/u</div></div></div>
+  </div>
+  <div class="small mute mb6"><i>Facturación total · «c/u» = para cada uno, tras los anuncios. Compra entre el 10 y el 15 % de las asistentes, contando repetición y carritos recuperados. Registros sumando reels, su base y anuncios. Antes de comisiones de Whop; con cuotas, parte del dinero entra en los meses siguientes.</i></div>
+
+  <div class="grid g3 mb6">
+    <div class="card stat bg-green"><div class="n green">34</div><div class="l">ventas para la meta de 10.000 €</div></div>
+    <div class="card stat"><div class="n">4</div><div class="l">ventas pagan los 1.000 € de anuncios</div></div>
+    <div class="card stat bg-purple"><div class="n purple">~1.180 €</div><div class="l">al mes recurrentes desde marzo si un 30 % pasa al Club</div></div>
+  </div>
+
+  <div class="card"><div class="tag mute">📊 Cada día medimos</div><div style="display:flex;flex-wrap:wrap;gap:2mm;margin-top:2mm">
+    <span class="pill" style="background:#fff">Registros</span><span class="pill" style="background:#fff">Comentarios con ELÍGETE</span><span class="pill" style="background:#fff">Coste por registro</span><span class="pill" style="background:#fff">Miembros del grupo</span><span class="pill" style="background:#fff">Asistentes</span><span class="pill" style="background:#fff">Visitas a la página de venta</span><span class="pill" style="background:#fff">Carritos</span><span class="pill" style="background:#fff">Ventas</span></div></div>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 17 · UMBRALES Y RIESGOS -->
+<section class="page">
+  <div class="eyebrow yellow">🚦 Umbrales y riesgos</div>
+  <h2>El semáforo<br><span class="mute">que nos dice cuándo actuar.</span></h2>
+  <table class="mt6 mb8" style="font-size:8.8pt">
+    <tr><th>Indicador</th><th><span class="dot" style="background:#30d158"></span></th><th><span class="dot" style="background:#ffcc00"></span></th><th><span class="dot" style="background:#ff3b30"></span></th><th>Si sale rojo</th></tr>
+    <tr><td>Registros al 14 ene</td><td>1.750+</td><td>1.000–1.750</td><td>&lt; 1.000</td><td>Resubir los reels top, directo extra y subir anuncios</td></tr>
+    <tr><td>Registros al 20 ene</td><td>3.500+</td><td>2.000–3.500</td><td>&lt; 2.000</td><td>Stories diarias con ELÍGETE y mensaje a su Telegram</td></tr>
+    <tr><td>Asistencia en directo</td><td>25 %+</td><td>15–25 %</td><td>&lt; 15 %</td><td>Recordatorios y audio de Agur</td></tr>
+    <tr><td>Ventas</td><td>105+</td><td>34–104</td><td>&lt; 34</td><td>Repetición hasta el domingo y carritos</td></tr>
+  </table>
+
+  <h3>Riesgos y cómo los cubrimos</h3>
+  <div class="grid g2" style="gap:3mm;margin-top:3mm">
+    <div class="card" style="padding:5mm"><div class="tag mute">Historias con poca audiencia</div><div class="small">Captación desde reels, palabra clave y anuncios · las historias solo calientan</div></div>
+    <div class="card" style="padding:5mm"><div class="tag mute">Mezcla con Herbalife</div><div class="small">Cláusula de separación en el contrato, como la 2.4 de Elga · sin batidos obligatorios · quien pregunte por el reto va a la clase y no a un pack</div></div>
+    <div class="card" style="padding:5mm"><div class="tag mute">Su salud y su momento personal</div><div class="small">Todo se graba en una sola sesión el 15 de diciembre · ella solo hace la clase y un directo a la semana</div></div>
+    <div class="card" style="padding:5mm"><div class="tag mute">Meta es estricto con la pérdida de peso</div><div class="small">Sin antes y después ni kilos en los anuncios · ella habla de su historia</div></div>
+    <div class="card" style="padding:5mm"><div class="tag mute">Cuesta de enero</div><div class="small">3 cuotas de 109 € y el reto empieza después de cobrar</div></div>
+    <div class="card" style="padding:5mm"><div class="tag mute">Latinoamérica, sensible al precio</div><div class="small">Las cuotas y un precio ya validado por su reto actual</div></div>
+    <div class="card" style="padding:5mm;grid-column:span 2"><div class="tag mute">Entrega que no escala</div><div class="small">Nada de revisar cada comida: check-in semanal en grupo y directo semanal</div></div>
+  </div>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 18 · QUIÉN HACE QUÉ + DECISIONES -->
+<section class="page">
+  <div class="eyebrow mute">🤝 Quién hace qué</div>
+  <div class="grid g2 mb8" style="gap:4mm">
+    <div class="card bg-green"><h3 class="green">💚 Agur</h3>
+      <ul class="clean"><li>Graba los 14 yapping y los anuncios el 15 de diciembre</li><li>Crea contenido con la palabra clave ELÍGETE</li><li>Imparte la clase</li><li>Entrega el reto: menús, entrenos y un directo a la semana</li></ul></div>
+    <div class="card"><h3>⚙️ Shivalink</h3>
+      <ul class="clean"><li>Oferta, páginas, guion, slides y anuncios · <b>Dani</b></li><li>Comunidad de WhatsApp y palabra clave · <b>Ange</b></li><li>Carritos abandonados · <b>Carina</b></li><li>Reporte diario · <b>Dani</b></li></ul></div>
+  </div>
+
+  <div class="eyebrow" style="color:#d70015">🗳️ Lo que decidimos en la sesión de partnership</div>
+  <table style="font-size:8.9pt">
+    <tr><th style="width:6mm">#</th><th>Pregunta</th><th>Nuestra propuesta</th><th style="width:8mm">✓</th></tr>
+    <tr><td>1</td><td>¿Cuánta gente hay en tu Telegram, tu WhatsApp y ManyChat?</td><td>Usarlo todo para invitar a la clase</td><td><span class="check"></span></td></tr>
+    <tr><td>2</td><td>Herbalife</td><td>El programa es suyo y no depende de ningún producto · cláusula de separación</td><td><span class="check"></span></td></tr>
+    <tr><td>3</td><td>¿Eres la única dueña de la cuenta y del negocio?</td><td>Firma ella, con sus datos o los de su empresa</td><td><span class="check"></span></td></tr>
+    <tr><td>4</td><td>Hora de la clase</td><td>Jueves 21 ene · 19:00 España · 13:00 Colombia</td><td><span class="check"></span></td></tr>
+    <tr><td>5</td><td>Precio</td><td>297 € o 3 × 109 €</td><td><span class="check"></span></td></tr>
+    <tr><td>6</td><td>Bono de acción rápida</td><td>Recetario Dulce Elígete · hasta el viernes 22 a las 21:00</td><td><span class="check"></span></td></tr>
+    <tr><td>7</td><td>Garantía</td><td>3 cm de cintura o repite gratis</td><td><span class="check"></span></td></tr>
+    <tr><td>8</td><td>Testimonios</td><td>5 a 10 alumnas de 45 a 60 con antes y después y su permiso</td><td><span class="check"></span></td></tr>
+    <tr><td>9</td><td>Anuncios</td><td>1.000 € · 500 cada uno</td><td><span class="check"></span></td></tr>
+    <tr><td>10</td><td>Grabación</td><td>Martes 15 de diciembre, una sola sesión</td><td><span class="check"></span></td></tr>
+    <tr><td>11</td><td>Menús y entrenos</td><td>Reutilizar lo que ya tiene de sus retos, sin batidos</td><td><span class="check"></span></td></tr>
+  </table>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+<!-- 19 · WHOP + CIERRE -->
+<section class="page">
+  <div class="eyebrow green">💳 Cobro y reparto · Whop 50/50</div>
+  <h2>Cada venta,<br><span class="mute">repartida sola.</span></h2>
+  <div class="grid g2 mt6 mb6" style="gap:4mm">
+    <div class="card bg-green"><div class="tag green">💳 Cómo se cobra</div><div class="small">Agur crea su cuenta de Whop desde <b>shivalink.com/whop</b>. Producto Reto Elígete a 297 € o 3 × 109 €. Shivalink entra en el equipo y el reparto 50/50 es automático en cada venta.</div></div>
+    <div class="card bg-pink"><div class="tag pink">✍️ El acuerdo</div><div class="small">50/50 en ingresos, gastos y publicidad · 1.000 € de anuncios, 500 cada uno · Fase 1 con meta de 10.000 € · si se supera, 12 meses juntos · salida con 30 días de aviso · cláusula de separación de Herbalife.</div></div>
+  </div>
+  <h3>Checklist de Whop</h3>
+  <div class="card mb8" style="padding:4mm 7mm">
+    <table>
+      <tr><td><span class="check"></span>Firmar el contrato</td></tr>
+      <tr><td><span class="check"></span>Cuenta desde shivalink.com/whop</td></tr>
+      <tr><td><span class="check"></span>Verificación de identidad y cuenta bancaria</td></tr>
+      <tr><td><span class="check"></span>Invitar a Shivalink al equipo</td></tr>
+      <tr><td><span class="check"></span>Producto Reto Elígete: 297 € y 3 × 109 €</td></tr>
+      <tr><td><span class="check"></span>Reparto 50/50 automático</td></tr>
+      <tr><td><span class="check"></span>Al pagar, redirigir al grupo Elígete y a la bienvenida</td></tr>
+    </table>
+  </div>
+  <div style="background:#000;border-radius:6mm;padding:12mm 10mm;position:relative;overflow:hidden">
+    <div class="glow" style="background:#7d4cdb;width:120mm;height:120mm;right:-40mm;top:-60mm;opacity:.5"></div>
+    <div style="position:relative;font-size:24pt">🌙</div>
+    <div class="quote" style="position:relative;color:#f5f5f7;font-size:18pt;margin-top:3mm">Agur ya hizo el camino más difícil:<br><span class="grad">el de su propio cuerpo.</span><br><span style="color:#86868b">Ahora solo hay que convertir su historia en un camino para miles.</span></div>
+  </div>
+  <div class="foot"><span>Elígete x Shivalink</span><span class="pn"></span></div>
+</section>
+
+</body>
+</html>
